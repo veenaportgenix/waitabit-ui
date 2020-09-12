@@ -16,7 +16,7 @@ export class BlockstackService {
 
   // UserSession
   userSession;
-  data;
+  data:any;
 
   /**
    * Constructor
@@ -63,14 +63,8 @@ export class BlockstackService {
         
 
 
-        this.localStorage.setItem('currentUser', JSON.stringify({
-          token: '',
-          isAdmin: false,
-          email: 'john.doe@gmail.com',
-          id: '12312323232',
-          expiration: moment().add(1, 'days').toDate(),
-          fullName: this.data.username
-        }));
+        this.localStorage.setItem('currentUser', JSON.stringify(
+      this.data));
 
         //call to backend to store it
         this.storeUserDetailsFireStore();
@@ -78,7 +72,7 @@ export class BlockstackService {
         this.router.navigate(['/dashboard']);
       },
       appDetails: {
-        name: 'DeWaitList',
+        name: 'Waitabit',
         icon: 'https://dewaitlist.com/favicon.ico'
 
       }

@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef,Inject } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { JsonPipe, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { BlockstackService } from 'src/app/services/blockstack.service';
 
@@ -13,11 +13,16 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router,private blockstackService: BlockstackService)  {
+  public user;
+  constructor(location: Location,  private element: ElementRef, private router: Router,private blockstackService: BlockstackService,@Inject('LOCALSTORAGE') private localStorage: Storage)  {
     this.location = location;
+    let data=JSON.parse(this.localStorage.currentUser);
+    this.user=data.username
   }
 
   ngOnInit() {
+
+   
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
   getTitle(){
@@ -33,5 +38,8 @@ export class NavbarComponent implements OnInit {
     }
     return 'Dashboard';
   }
+  
+
+   
 
 }
