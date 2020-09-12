@@ -9,14 +9,14 @@ export class AuthGuard implements CanActivate {
         private blockstackService: BlockstackService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        
+
         if (this.blockstackService && this.blockstackService.userSession && this.blockstackService.userSession.isUserSignedIn()) {
             // logged in so return true
             return true;
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
         return false;
     }
 }

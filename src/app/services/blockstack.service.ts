@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AppConfig, UserSession } from 'blockstack';
 import { showBlockstackConnect } from '@blockstack/connect';
 import * as moment from 'moment';
+import { Constants } from "../common/constants";
+import { RestService } from "../services/rest.services";
+import { Console } from 'console';
 
 
 
@@ -13,11 +16,12 @@ export class BlockstackService {
 
   // UserSession
   userSession;
+  data;
 
   /**
    * Constructor
    */
-  constructor(private router: Router,@Inject('LOCALSTORAGE') private localStorage: Storage) {
+  constructor( private restService: RestService,private router: Router,@Inject('LOCALSTORAGE') private localStorage: Storage) {
     const appConfig = new AppConfig(['store_write', 'publish_data']);
     this.userSession = new UserSession({ appConfig: appConfig });
 
@@ -32,8 +36,7 @@ export class BlockstackService {
             throw new Error('This app requires a username.')
           }
         });
-
-      // Redirect to previous page
+   
       this.router.navigate([""]);
     }
 
@@ -54,10 +57,10 @@ export class BlockstackService {
       userSession: this.userSession,
       finished: async ({ userSession }) =>
       {
-        let data = userSession.loadUserData();
-        console.log(data)
+        this.data = userSession.loadUserData();
+        //console.log(this.data)
 
-        //url: https://us-central1-app-4-5933c.cloudfunctions.net/waitabit
+        
 
 
         this.localStorage.setItem('currentUser', JSON.stringify({
@@ -66,9 +69,12 @@ export class BlockstackService {
           email: 'john.doe@gmail.com',
           id: '12312323232',
           expiration: moment().add(1, 'days').toDate(),
-          fullName: data.username
+          fullName: this.data.username
         }));
+
         //call to backend to store it
+        this.storeUserDetailsFireStore();
+
         this.router.navigate(['/dashboard']);
       },
       appDetails: {
@@ -89,5 +95,24 @@ export class BlockstackService {
     console.log("In lout function")
     this.userSession.signUserOut();
     this.router.navigate(['/#/register']);
+  }
+
+
+  storeUserDetailsFireStore()
+  {
+    console.log("storeUserDetailsFireStore")
+    var payload =  this.data
+    console.log(payload);
+    this.restService
+      .post(Constants.DOMAIN_URL + Constants.CLIENT_LOGIN, payload)
+      .subscribe(
+        (data: any) => {
+          console.log("Stored in firestore");
+        },
+        (error) => {
+          console.log("failed to get data")  
+        }
+      );
+  
   }
 }
