@@ -13,7 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import * as blockstack from 'blockstack';
-
+import { AuthGuard } from './services/AuthGuard';
 
 
 
@@ -32,7 +32,7 @@ import * as blockstack from 'blockstack';
     AdminLayoutComponent,
     AuthLayoutComponent
   ],
-  providers: [{ provide: 'LOCALSTORAGE', useValue: window.localStorage }],
+  providers: [{ provide: 'LOCALSTORAGE', useValue: window.localStorage },AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
