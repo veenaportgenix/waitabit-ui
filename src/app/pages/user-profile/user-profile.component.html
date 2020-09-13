@@ -1,39 +1,103 @@
 <div class="header bg-gradient-blue pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
-      <!-- Card stats -->
-      <div class="row">
-        <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-            
-                
-                  <h5 class="card-title text-uppercase text-muted mb-0">API Key-Production</h5>
-                  <span class="h2 font-weight-bold mb-0">121</span>
-                  <button class="btn btn-primary" type="button">Show</button>
-             
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-xl-4 col-lg-6">
-          <div class="card card-stats mb-6 mb-xl-2">
-            <div class="card-body">
-            
-                
-                  <h5 class="card-title text-uppercase text-muted mb-0">API Key-Developer</h5>
-                  <span class="h2 font-weight-bold mb-0">121</span>
-             
-            </div>
-          </div>
-        </div>
+    
+     
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        
+        <ngb-tabset class="card-header border-0">
+          <ngb-tab class="mb-0" title="Production">
+            <ng-template ngbTabContent>
   
-           
+              <div class="card    align-self: center !important; " >
+              
+                <div class="card-body  ">
+                 
+                    <form class="form-horizontal" >
+                      <div class="form-group">
+                        <div class="row">
+                        <label class="control-label col-sm-2" for="appName">App Name</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="appName" placeholder="Enter your application name">
+                        </div>
+                      </div>
+                      </div>
+                     
+                      <div class="form-group">
+                        <div class="row">
+                        <label class="control-label col-sm-2" for="url">Website URL</label>
+                        <div class="col-sm-6">
+                          <input type="password" class="form-control" id="url" placeholder="eg.www.getwaitlist.dev">
+                        </div>
+                        </div>
+                      </div>
+                  
+                      
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-default">Genetate API Key</button>
+                        </div>
+                      </div>
+                    </form>
+                    
 
+
+
+                   
+               
+                </div>
+              
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Development">
+            <ng-template ngbTabContent>
+
+              <div class="card" >
+              <div class="card-body">
+             
+                <form class="form-horizontal" >
+                 
+                 
+                  <div class="form-group">
+                    <div class="row">
+                    <label class="control-label col-sm-2" for="url">Website URL</label>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control" id="url" placeholder="eg.http://localhost">
+                    </div>
+                    </div>
+                  </div>
+              
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Genetate API Key</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+             
+              </div>
+            
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+        <div class="card-header border-0">
       
-
+        </div>
+       
+    
       </div>
     </div>
   </div>
+  <!-- Dark table -->
+ 
 </div>
