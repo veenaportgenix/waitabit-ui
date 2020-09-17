@@ -16,6 +16,7 @@ export class BlockstackService {
 
   // UserSession
   userSession;
+  userSessionToken;
   data:any;
 
   /**
@@ -37,7 +38,7 @@ export class BlockstackService {
           }
         });
    
-      this.router.navigate([""]);
+      this.router.navigate(["/home"]);
     }
 
   }
@@ -61,15 +62,14 @@ export class BlockstackService {
         //console.log(this.data)
 
         
+        
 
 
-        this.localStorage.setItem('currentUser', JSON.stringify(
-      this.data));
+       
 
         //call to backend to store it
         this.storeUserDetailsFireStore();
 
-        this.router.navigate(['/dashboard']);
       },
       appDetails: {
         name: 'Waitabit',
@@ -88,23 +88,35 @@ export class BlockstackService {
     // Logout
     console.log("In lout function")
     this.userSession.signUserOut();
-    this.router.navigate(['/#/register']);
+     this.localStorage.removeItem('currentUser');
+     this.localStorage.removeItem('sessionToken');
+    this.router.navigate(['']);
   }
 
 
-  storeUserDetailsFireStore()
+ async storeUserDetailsFireStore()
   {
     console.log("storeUserDetailsFireStore")
     var payload =  this.data
     console.log(payload);
     this.restService
-      .post(Constants.DOMAIN_URL + Constants.CLIENT_LOGIN, payload)
+      .postwo(Constants.DOMAIN_URL + Constants.CLIENT_SIGNUP, payload)
       .subscribe(
         (data: any) => {
-          console.log("Stored in firestore");
+          console.log(data.session);
+         this.userSessionToken=data.session;
+         this.localStorage.setItem('currentUser', JSON.stringify(
+          this.data));
+          this.localStorage.setItem('sessionToken',JSON.stringify(
+            data.session));
+            this.restService.sessionToken= this.userSessionToken
+        this.router.navigate(['/dashboard']);
         },
         (error) => {
-          console.log("failed to get data")  
+       console.log(error.error.message);
+       this.localStorage.removeItem('blockstack-session');
+       
+       this.userSession.signUserOut();
         }
       );
   
