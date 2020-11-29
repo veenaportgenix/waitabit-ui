@@ -8,8 +8,7 @@ import { BlockstackService } from 'src/app/services/blockstack.service';
 import {
   chartOptions,
   parseOptions,
-  chartExample1,
-  chartExample2
+  monthSignupChart
 } from "../../variables/charts";
 
 @Component({
@@ -21,9 +20,9 @@ export class DashboardComponent implements OnInit {
 
   public datasets: any;
   public data: any;
-  public salesChart;
-  public clicked: boolean = true;
-  public clicked1: boolean = false;
+  public monthChart;
+  public barMonthChart;
+  //public clicked1: boolean = true;
   public totalSignup;
   public weeklySignup;
   public dailySignup;
@@ -36,41 +35,36 @@ export class DashboardComponent implements OnInit {
     this.getFile();
 
 
+  }
 
-
-
+  updateChartComponent(){
     var chartOrders = document.getElementById('chart-orders');
-
     parseOptions(Chart, chartOptions());
 
-
-    var ordersChart = new Chart(chartOrders, {
+    this.barMonthChart = new Chart(chartOrders, {
       type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
+      options: monthSignupChart.options,
+      data: monthSignupChart.data
     });
 
 
-
-    var chartSales = document.getElementById('chart-sales');
-    this.salesChart = new Chart(chartSales, {
-      type: 'line',
-      options: chartExample1.options,
-      data: chartExample1.data
-    });
+     var chartSales = document.getElementById('chart-sales');
+     this.monthChart = new Chart(chartSales, {
+       type: 'line',
+       options: monthSignupChart.options,
+       data: monthSignupChart.data
+     }); 
+     this.updateOptions();
   }
-
-
-
-
 
   public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
+    this.monthChart.data.datasets[0].data = this.data[0];
+    //console.log(this.salesChart.data.datasets[0].data)
+    this.monthChart.update();
+
+    this.barMonthChart.data.datasets[0].data = this.data[0];
+    this.barMonthChart.update();
   }
-
-
-
 
   getFile() {
     let options = { decrypt: true };
@@ -86,22 +80,8 @@ export class DashboardComponent implements OnInit {
           [statsData.monthSignup]
         ];
         this.data = this.datasets[0];
-
-
-        console.log(statsData)
-
-
-
-      } else {
-        const user = {};
-
+        this.updateChartComponent();
       }
     });
-
-
-
-
   }
-
-
 }

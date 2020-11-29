@@ -2,7 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -17,8 +17,7 @@ import { AuthGuard } from './services/AuthGuard';
 import { AppService } from './services/app.service';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { CustomReusingStrategy } from './services/custom';
 
 @NgModule({
   imports: [
@@ -31,20 +30,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-  
-   
-    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-
-
-    
-   
   ],
-  providers: [{ provide: 'LOCALSTORAGE', useValue: window.localStorage },AuthGuard, AppService   ],
+  providers: [
+    { provide: 'LOCALSTORAGE', useValue: window.localStorage }, 
+    AuthGuard, 
+    { provide: RouteReuseStrategy, useClass: CustomReusingStrategy },
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

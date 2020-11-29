@@ -22,46 +22,26 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
 
-
-
-
 @NgModule({
   imports: [
     CommonModule,
     LandingRoutingModule,
     NguCarouselModule,
     NgbModule,
-
     FormsModule
   ],
   declarations: [
- 
-
-    
-  
-
-
-
-
     PricingOneComponent,
     ContactFormComponent,
-  
     BestComponent,
     LeftImageComponent,
-
-
-
     HeaderComponent,
     ScrollToDirective,
     HeaderWhiteComponent,
-   
-
     IntroTenComponent,
     HomeComponent,
-
   ],
   providers: [WINDOW_PROVIDERS]
-
   // exports: ScrollToDirective
 })
-export class LandingModule {}
+export class LandingModule { }

@@ -2,6 +2,8 @@ import { Component, OnInit, Injectable, Inject } from '@angular/core';
 
 import { RestService } from "../../services/rest.services";
 import { Constants } from "../../common/constants";
+import { Router } from '@angular/router';
+import { BlockstackService } from 'src/app/services/blockstack.service';
 
 
 @Component({
@@ -19,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   model: any = {};
 
 
-  constructor(private restService: RestService, @Inject('LOCALSTORAGE') private localStorage: Storage) { }
+  constructor(private router: Router, private blockstackService: BlockstackService, private restService: RestService, @Inject('LOCALSTORAGE') private localStorage: Storage) { }
 
   ngOnInit() {
     this.getApiKey();
@@ -37,7 +39,7 @@ export class UserProfileComponent implements OnInit {
     console.log(this.restService.sessionToken)
     var payload =
     {
-      appName:this.appName,
+      appName: this.appName,
       url: this.appUrl
     }
     console.log(payload);
@@ -73,8 +75,14 @@ export class UserProfileComponent implements OnInit {
           this.appName = data.app_name;
         },
         (error) => {
-          //console.log(error);
-          this.showApiKey = false;
+          //token expires
+          if (error.status === 401) {
+            this.showApiKey = false;
+            this.blockstackService.logout()
+            this.router.navigate(['home']);
+          } else {
+            console.log(error)
+          }
         }
       );
 

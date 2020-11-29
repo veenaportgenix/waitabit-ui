@@ -10,11 +10,17 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: "",
+    data:{
+      reuse:true  
+    }, 
     component: HomeComponent
   },
   
   {
     path: "home",
+    data:{
+      reuse:true  
+    }, 
     component: HomeComponent
   },
  

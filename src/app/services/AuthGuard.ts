@@ -8,11 +8,11 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router,
         private blockstackService: BlockstackService) { }
 
-    canActivate():boolean {
+    canActivate(): boolean {
 
         if (this.blockstackService && this.blockstackService.userSession && this.blockstackService.userSession.isUserSignedIn()) {
             // logged in so return true
-         
+
             return true;
         }
 
