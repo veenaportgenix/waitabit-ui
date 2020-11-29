@@ -7,26 +7,31 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" routerLinkActive="active" [routerLink]="['/dashboard']">
-      <img src="./assets/img/brand/red.png" class="navbar-brand-img" alt="...">
+      <img src="./assets/images/logo.png" class="navbar-brand-img" alt="...">
     </a>
+    
     <!-- User -->
-    <ul class="nav align-items-center d-md-none">
-      <li class="nav-item" ngbDropdown placement="bottom-right">
-        <a class="nav-link nav-link-icon" role="button" ngbDropdownToggle>
-          <i class="ni ni-bell-55"></i>
+    
+    <ul class="navbar-nav align-items-center d-none d-md-flex">
+      <li class="nav-item" ngbDropdown placement="bottom-center">
+        <a class="nav-link pr-0" role="button" ngbDropdownToggle>
+          <span class="mb-0 text-sm  font-weight-bold">{{user}}</span>
         </a>
-        <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
-          <a class="dropdown-item" href="javascript:void(0)">Action</a>
-          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+        <div class="dropdown-menu-arrow" ngbDropdownMenu>
+          <a (click)="blockstackService.logout();router.navigate(['']);" href="#!" class="dropdown-item">
+            <i class="ni ni-user-run" (click)="blockstackService.logout();router.navigate(['']);" ></i>
+            <span (click)="blockstackService.logout();router.navigate(['']);" >Logout</span>
+          </a>
         </div>
       </li>
+    </ul>
+    <ul class="nav align-items-center d-md-none">
+    
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
             <span class="avatar avatar-sm rounded-circle">
-              <img alt="Image placeholder" src="./assets/img/theme/team-1-800x800.jpg">
+              <img alt="Image placeholder" src="./assets/images/logo.png">
             </span>
           </div>
         </a>
@@ -36,27 +41,19 @@
           </div>
           <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-single-02"></i>
-            <span>My profile</span>
-          </a>
-          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
-            <i class="ni ni-settings-gear-65"></i>
-            <span>Settings</span>
-          </a>
-          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
-            <i class="ni ni-calendar-grid-58"></i>
-            <span>Activity</span>
-          </a>
-          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
-            <i class="ni ni-support-16"></i>
-            <span>Support</span>
+            <span>Blackstack profile</span>
           </a>
           <div class="dropdown-divider"></div>
 
-          <a href="#!" class="dropdown-item">
+          <a (click)="blockstackService.logout();router.navigate(['']);" href="#!" class="dropdown-item">
+            <i class="ni ni-user-run" (click)="blockstackService.logout();router.navigate(['']);" ></i>
+            <span (click)="blockstackService.logout();router.navigate(['']);" >Logout</span>
+          </a>
+          <!--<a href="#!" class="dropdown-item">
             <i class="ni ni-user-run"></i>
             
             <span >Logout</span>
-          </a>
+          </a>-->
         </div>
       </li>
     </ul>

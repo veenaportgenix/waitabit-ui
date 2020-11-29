@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event, Router, NavigationStart, RouterEvent, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  showLoadingIndicator = true;
+  constructor(private _router: Router){
+    this._router.events.subscribe((routerEvent: Event ) => {
+        if(routerEvent instanceof NavigationStart) {
+          console.log("showLoadingIndicator: true")
+          this.showLoadingIndicator = true;
+        }
+        if(routerEvent instanceof NavigationEnd) {
+          console.log("showLoadingIndicator: false")
+          this.showLoadingIndicator = false;
+        }
+    });
+  }
 
   ngOnInit() {
   }

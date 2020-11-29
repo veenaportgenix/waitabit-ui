@@ -51,11 +51,11 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    debugger
+    //debugger
     if (this.blockstackService.userSession.isUserSignedIn()) {
       let userData = this.blockstackService.userSession.loadUserData();
-      console.log(userData)
-      console.log(userData.username)
+      //console.log(userData)
+      //console.log(userData.username)
       this.router.navigate(['/dashboard']);
     } else if (!this.blockstackService.userSession.isUserSignedIn() && this.blockstackService.userSession.isSignInPending()) {
       // If it is in progress
