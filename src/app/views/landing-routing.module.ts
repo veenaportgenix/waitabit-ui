@@ -3,19 +3,19 @@ import { NgModule } from "@angular/core";
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { LandingV10Component } from './landing-v10/landing-v10.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 const routes: Routes = [
   {
     path: "",
-    component: LandingV10Component
+    component: HomeComponent
   },
   
   {
-    path: "v10",
-    component: LandingV10Component
+    path: "home",
+    component: HomeComponent
   },
  
 ];

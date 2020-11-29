@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from '../../pages/home/home.component';
+//import { HomeComponent } from '../../pages/home/home.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,8 +13,7 @@ import { HomeComponent } from '../../pages/home/home.component';
     // NgbModule
   ],
   declarations: [
-   
-    HomeComponent
+    //HomeComponent
   ]
 })
 export class AuthLayoutModule { }

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { AuthGuard } from './services/AuthGuard';
-import {LandingLayoutComponent} from "./shared/components/layouts/landing-layout/landing-layout.component";
-const routes: Routes =[
+import { LandingLayoutComponent } from "./shared/components/layouts/landing-layout/landing-layout.component";
+const routes: Routes = [
   {
     path: "",
-   redirectTo: "landing/v10",
+    redirectTo: "home",
     pathMatch: "full",
   }, {
     path: '',
@@ -32,27 +32,27 @@ const routes: Routes =[
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
     ]
-  }, 
+  },
   {
     path: "",
     component: LandingLayoutComponent,
     children: [
       {
-        path: "landing",
+        path: "",
         loadChildren: () =>
-          import("./views/landing/landing.module").then((m) => m.LandingModule),
+          import("./views/landing.module").then((m) => m.LandingModule),
       },
     ],
   },
 
- 
+
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
+    RouterModule.forRoot(routes, {
       useHash: true
     })
   ],

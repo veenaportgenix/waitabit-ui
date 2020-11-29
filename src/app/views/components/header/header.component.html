@@ -51,12 +51,18 @@
                     <a href="#" scrollTo="contacts-wrap" class="nav-link m-2 menu-item">Contact Us</a>
                 </li>
 
+                
                 <li (click)="hidemenu()" class="nav-item">
-                    <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="login();">Login</a>
+                    <div *ngIf="this.blockstackService.userSession.isUserSignedIn()">
+                        <a href="#/dashboard"  class="nav-link m-2 menu-item nav-active">Dashboard</a>
+                    </div>
+
+                    <div *ngIf="!this.blockstackService.userSession.isUserSignedIn()">
+                        <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="login();">Login</a>
+                    </div>
+                    
                 </li> 
 
-
-                
                 <li (click)="hidemenu()" class="nav-item">
                     <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="signup();">Sign Up</a>
                 </li> 

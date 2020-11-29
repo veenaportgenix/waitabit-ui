@@ -17,7 +17,7 @@ import { HeaderWhiteComponent } from './components/header-white/header-white.com
 
 
 import { IntroTenComponent } from './components/intro-ten/intro-ten.component';
-import { LandingV10Component } from './landing-v10/landing-v10.component';
+import { HomeComponent } from './home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
@@ -57,7 +57,7 @@ import { FormsModule } from '@angular/forms';
    
 
     IntroTenComponent,
-    LandingV10Component,
+    HomeComponent,
 
   ],
   providers: [WINDOW_PROVIDERS]
