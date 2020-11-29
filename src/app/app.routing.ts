@@ -7,12 +7,12 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { AuthGuard } from './services/AuthGuard';
-
+import {LandingLayoutComponent} from "./shared/components/layouts/landing-layout/landing-layout.component";
 const routes: Routes =[
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: "",
+   redirectTo: "landing/v10",
+    pathMatch: "full",
   }, {
     path: '',
     component: AdminLayoutComponent,
@@ -33,12 +33,19 @@ const routes: Routes =[
       }
     ]
   }, 
-
-  
   {
-    path: '**',
-    redirectTo: 'home'
-  }
+    path: "",
+    component: LandingLayoutComponent,
+    children: [
+      {
+        path: "landing",
+        loadChildren: () =>
+          import("./views/landing/landing.module").then((m) => m.LandingModule),
+      },
+    ],
+  },
+
+ 
 ];
 
 @NgModule({

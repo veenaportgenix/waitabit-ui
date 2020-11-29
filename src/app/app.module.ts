@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import * as blockstack from 'blockstack';
 import { AuthGuard } from './services/AuthGuard';
+import { AppService } from './services/app.service';
+import { SharedModule } from './shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,14 +28,23 @@ import { AuthGuard } from './services/AuthGuard';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+  
+   
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+
+
+    
+   
   ],
-  providers: [{ provide: 'LOCALSTORAGE', useValue: window.localStorage },AuthGuard],
+  providers: [{ provide: 'LOCALSTORAGE', useValue: window.localStorage },AuthGuard, AppService   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

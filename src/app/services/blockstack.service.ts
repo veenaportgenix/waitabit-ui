@@ -1,4 +1,4 @@
-import { Injectable,Inject } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppConfig, UserSession } from 'blockstack';
 import { showBlockstackConnect } from '@blockstack/connect';
@@ -6,6 +6,10 @@ import * as moment from 'moment';
 import { Constants } from "../common/constants";
 import { RestService } from "../services/rest.services";
 import { Console } from 'console';
+import * as CryptoJS from 'crypto-js';
+import { useConnect } from '@blockstack/connect';
+import { authenticate } from '@blockstack/connect';
+
 
 
 
@@ -17,12 +21,12 @@ export class BlockstackService {
   // UserSession
   userSession;
   userSessionToken;
-  data:any;
+  data: any;
 
   /**
    * Constructor
    */
-  constructor( private restService: RestService,private router: Router,@Inject('LOCALSTORAGE') private localStorage: Storage) {
+  constructor(private restService: RestService, private router: Router, @Inject('LOCALSTORAGE') private localStorage: Storage) {
     const appConfig = new AppConfig(['store_write', 'publish_data']);
     this.userSession = new UserSession({ appConfig: appConfig });
 
@@ -37,7 +41,7 @@ export class BlockstackService {
             throw new Error('This app requires a username.')
           }
         });
-   
+
       this.router.navigate(["/home"]);
     }
 
@@ -46,39 +50,50 @@ export class BlockstackService {
   /**
   * Blockstack Login
   */
-  login() {
 
-    // Login page of Blockstack
-    //new blockstack auth
-
+  signup() {
     const authOptions = {
       redirectTo: '/',
       manifestPath: '/manifest.json',
       //authOrigin: "http://localhost:4200/",
       userSession: this.userSession,
-      finished: async ({ userSession }) =>
-      {
+      sendToSignIn: false,
+      finished: async ({ userSession }) => {
         this.data = userSession.loadUserData();
-        //console.log(this.data)
-
-        
-        
-
-
-       
-
-        //call to backend to store it
         this.storeUserDetailsFireStore();
-
       },
       appDetails: {
         name: 'Waitabit',
-        icon: 'https://dewaitlist.com/favicon.ico'
-
+        icon: './assets/images/logo.png'
       }
     };
+
+    // authenticate(authOptions)
     showBlockstackConnect(authOptions);
     //this.userSession.redirectToSignIn();
+  }
+
+  login() {
+    // Login page of Blockstack
+    //new blockstack auth
+    const authOptions = {
+      redirectTo: '/',
+      manifestPath: '/manifest.json',
+      //authOrigin: "http://localhost:4200/",
+      userSession: this.userSession,
+      sendToSignIn: true,
+      finished: async ({ userSession }) => {
+        this.data = userSession.loadUserData();
+        this.storeUserDetailsFireStore();
+      },
+      appDetails: {
+        name: 'Waitabit',
+        icon: './assets/images/logo.png'
+      }
+    };
+    authenticate(authOptions)
+    //showBlockstackConnect(authOptions);
+    //  this.userSession.redirectToSignIn();
   }
 
   /**
@@ -88,37 +103,34 @@ export class BlockstackService {
     // Logout
     console.log("In lout function")
     this.userSession.signUserOut();
-     this.localStorage.removeItem('currentUser');
-     this.localStorage.removeItem('sessionToken');
+    this.localStorage.removeItem('currentUser');
+    this.localStorage.removeItem('sessionToken');
     this.router.navigate(['']);
   }
 
 
- async storeUserDetailsFireStore()
-  {
+  async storeUserDetailsFireStore() {
     console.log("storeUserDetailsFireStore")
-    var payload =  this.data
+    var payload = this.data
     console.log(payload);
     this.restService
       .postwo(Constants.DOMAIN_URL + Constants.CLIENT_SIGNUP, payload)
       .subscribe(
         (data: any) => {
           console.log(data.session);
-         this.userSessionToken=data.session;
-         this.localStorage.setItem('currentUser', JSON.stringify(
-          this.data));
-          this.localStorage.setItem('sessionToken',JSON.stringify(
-            data.session));
-            this.restService.sessionToken= this.userSessionToken
-        this.router.navigate(['/dashboard']);
+          this.userSessionToken = data.session;
+          this.localStorage.setItem('currentUser', JSON.stringify(
+            this.data));
+          this.localStorage.setItem('sessionToken', data.session);
+          this.router.navigate(['/dashboard']);
         },
         (error) => {
-       console.log(error.error.message);
-       this.localStorage.removeItem('blockstack-session');
-       
-       this.userSession.signUserOut();
+          console.log(error.error.message);
+          this.localStorage.removeItem('blockstack-session');
+
+          this.userSession.signUserOut();
         }
       );
-  
+
   }
 }

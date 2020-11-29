@@ -11,7 +11,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
   test: Date = new Date();
   public isCollapsed = true;
 
-  constructor(private router: Router,private blockstackService: BlockstackService) { }
+  constructor(private router: Router, private blockstackService: BlockstackService) { }
 
   ngOnInit() {
 
@@ -22,7 +22,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     body.classList.add("bg-default");
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
-   });
+    });
 
   }
   ngOnDestroy() {
@@ -36,19 +36,19 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
 
   signin() {
     if (this.blockstackService.userSession.isUserSignedIn()) {
-        let userData = this.blockstackService.userSession.loadUserData();
-        console.log(userData)
-        console.log(userData.username)
-        this.router.navigate(['/dashboard']);
+      let userData = this.blockstackService.userSession.loadUserData();
+      console.log(userData)
+      console.log(userData.username)
+      this.router.navigate(['/dashboard']);
     } else if (!this.blockstackService.userSession.isUserSignedIn() && this.blockstackService.userSession.isSignInPending()) {
-        // If it is in progress
-        this.blockstackService.userSession.handlePendingSignIn()
-            .then((userData) => {
-                console.log(userData)
-                this.router.navigate(['/dashboard']);
-            });
-    } else{
-        this.blockstackService.login();
+      // If it is in progress
+      this.blockstackService.userSession.handlePendingSignIn()
+        .then((userData) => {
+          console.log(userData)
+          this.router.navigate(['/dashboard']);
+        });
+    } else {
+      this.blockstackService.login();
     }
-}
+  }
 }

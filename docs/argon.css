@@ -32,7 +32,7 @@
     --gray-dark: #32325d;
     --light: #ced4da;
     --lighter: #e9ecef;
-    --primary: #5e72e4;
+    --primary:#4050b5;
     --secondary: #f7fafc;
     --success: #2dce89;
     --info: #11cdef;
@@ -15046,7 +15046,7 @@ button.bg-lighter:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #4050b5 0, #1a1c4d 100%) !important;
 }
 
 .bg-gradient-secondary
@@ -15106,7 +15106,7 @@ button.bg-lighter:focus
 
 .bg-gradient-blue
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #4050b5 0, #1a1c4d 100%) !important;
 }
 
 .bg-gradient-indigo
@@ -15402,7 +15402,7 @@ button.section-darker:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #4050b5 0, #1a1c4d 100%) !important;
 }
 
 .bg-gradient-secondary

@@ -1,8 +1,13 @@
 import Chart from 'chart.js';
+
+
 //
 // Chart extension for making the bars rounded
 // Code from: https://codepen.io/jedtrow/full/ygRYgo
 //
+
+
+
 
 Chart.elements.Rectangle.prototype.draw = function() {
   var ctx = this._chart.ctx;
@@ -302,7 +307,7 @@ export const chartExample1 = {
     labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [{
       label: 'Performance',
-      data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+      data: [0, 200, 10, 30, 15, 40, 20, 60, 60]
     }]
   }
 }
@@ -343,7 +348,7 @@ export const chartExample2 = {
     datasets: [
       {
         label: "Sales",
-        data: [25, 20, 30, 22, 17, 29]
+        data: [25, 200, 30, 22, 100, 29]
       }
     ]
   }

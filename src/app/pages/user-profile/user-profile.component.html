@@ -1,103 +1,113 @@
-<div class="header bg-gradient-blue pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-blue pb-9 pt-6 py-7">
   <div class="container-fluid">
     <div class="header-body">
-    
-     
+
+
     </div>
   </div>
 </div>
-<!-- Page content -->
+
+
 <div class="container-fluid mt--7">
   <!-- Table -->
   <div class="row">
     <div class="col">
       <div class="card shadow">
-        
-        <ngb-tabset class="card-header border-0">
-          <ngb-tab class="mb-0" title="Production">
-            <ng-template ngbTabContent>
-  
-              <div class="card    align-self: center !important; " >
-              
-                <div class="card-body  ">
-                 
-                    <form class="form-horizontal" >
-                      <div class="form-group">
-                        <div class="row">
-                        <label class="control-label col-sm-2" for="appName">App Name</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="appName" placeholder="Enter your application name">
-                        </div>
-                      </div>
-                      </div>
-                     
-                      <div class="form-group">
-                        <div class="row">
-                        <label class="control-label col-sm-2" for="url">Website URL</label>
-                        <div class="col-sm-6">
-                          <input type="password" class="form-control" id="url" placeholder="eg.www.getwaitlist.dev">
-                        </div>
-                        </div>
-                      </div>
-                  
-                      
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-default">Genetate API Key</button>
-                        </div>
-                      </div>
-                    </form>
-                    
-
-
-
-                   
-               
-                </div>
-              
-              </div>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Development">
-            <ng-template ngbTabContent>
-
-              <div class="card" >
-              <div class="card-body">
-             
-                <form class="form-horizontal" >
-                 
-                 
-                  <div class="form-group">
-                    <div class="row">
-                    <label class="control-label col-sm-2" for="url">Website URL</label>
-                    <div class="col-sm-6">
-                      <input type="password" class="form-control" id="url" placeholder="eg.http://localhost">
-                    </div>
-                    </div>
-                  </div>
-              
-                  
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-default" (click)="generateApiKey();">Genetate API Key</button>
-                    </div>
-                  </div>
-                </form>
-                </div>
-             
-              </div>
-            
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset>
         <div class="card-header border-0">
-      
+          <h3 class="mb-0">App Details</h3>
         </div>
-       
-    
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+
+            </thead>
+            <tbody>
+              <div *ngIf="showApiKey" class="card-body">
+                <div class="col-md-8 offset-md-4">
+                  <tr>
+                    <th scope="row">
+                      <span class="mb-0 text-sm">APP NAME</span>
+                    </th>
+                    <th>
+                      <span class="mb-0 text-sm">{{appName}}</span>
+                    </th>
+                  </tr>
+
+
+
+                  <tr>
+                    <th scope="row">
+                      <span class="mb-0 text-sm">APP URL</span>
+                    </th>
+
+                    <th><span class="mb-0 text-sm">{{appUrl}}</span>
+                    </th>
+
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      <span class="mb-0 text-sm">PRODUCTION API KEY</span></th>
+
+                    <th><span class="mb-0 text-sm">{{appProdApiKey}}</span>
+                    </th>
+
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      <span class="mb-0 text-sm">DEVELOPER API KEY</span></th>
+
+                    <th><span class="mb-0 text-sm">{{appDevApiKey}}</span>
+                    </th>
+
+                  </tr>
+
+                </div>
+              </div>
+              <div *ngIf="!showApiKey" class="card-body">
+
+                <div class="jumbotron">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-8 offset-md-2">
+
+                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                          <div class="form-group">
+                            <label for="appName">Application Name</label>
+                            <input type="text" class="form-control" name="appName" [(ngModel)]="appName"
+                              [ngClass]="{ 'is-invalid': f.submitted && appName.invalid }"
+                              required />
+                            <div *ngIf="f.submitted && appName.invalid" class="invalid-feedback">
+                              <div *ngIf="appName.errors.required">Application Name is required</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="appUrl">Website URL</label>
+                            <input type="text" class="form-control" name="appUrl" [(ngModel)]="appUrl"
+                              [ngClass]="{ 'is-invalid': f.submitted && appUrl.invalid }" required />
+                            <div *ngIf="f.submitted && appUrl.invalid" class="invalid-feedback">
+                              <div *ngIf="appUrl.errors.required">Website URL is required</div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group" (click)="generateApiKey();">
+                            <button class="btn btn-primary">Genetate API Key</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tbody>
+          </table>
+        </div>
+
+
+
       </div>
     </div>
   </div>
-  <!-- Dark table -->
- 
 </div>

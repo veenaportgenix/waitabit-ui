@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/scss/argon.scss"
+              "src/assets/scss/argon.scss",
+              "src/assets/styles/app/_app.scss"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
