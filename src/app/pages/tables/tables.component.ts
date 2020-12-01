@@ -62,7 +62,7 @@ export class TablesComponent implements OnInit {
     });
   }
 
-  download() {
+  export() {
     this.appService.downloadFile(this.waitListData, 'WaitListData');
   }
 }

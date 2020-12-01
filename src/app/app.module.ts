@@ -16,7 +16,7 @@ import * as blockstack from 'blockstack';
 import { AuthGuard } from './services/AuthGuard';
 import { AppService } from './services/app.service';
 import { SharedModule } from './shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import { CustomReusingStrategy } from './services/custom';
 
 @NgModule({

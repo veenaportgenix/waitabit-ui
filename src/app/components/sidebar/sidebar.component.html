@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white">
   <div class="container-fluid" style="width: 80%;">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
@@ -11,7 +11,7 @@
     </a>
     
     <!-- User -->
-    
+    <div *ngIf="isLoggedIn">
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item" ngbDropdown placement="bottom-center">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
@@ -25,6 +25,7 @@
         </div>
       </li>
     </ul>
+  </div>
     <ul class="nav align-items-center d-md-none">
     
       <li class="nav-item" ngbDropdown placement="bottom-right">
@@ -64,7 +65,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a  routerLinkActive="active" [routerLink]="['/dashboard']">
-              <img src="./assets/img/brand/blue.png">
+              <img src="./assets/images.logo.png">
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -88,12 +89,18 @@
       </form>
       <!-- Navigation -->
       <ul class="navbar-nav">
+
+        
           <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
               <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
                   <i class="ni {{menuItem.icon}}"></i>
                   {{menuItem.title}}
               </a>
+
+
+              
           </li>
+   
       </ul>
       <!-- Divider -->
       <hr class="my-3">
@@ -106,7 +113,7 @@
             <i class="ni ni-spaceship"></i> Getting started
           </a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard-angular/documentation/colors">
             <i class="ni ni-palette"></i> Foundation
           </a>
@@ -115,7 +122,7 @@
           <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard-angular/documentation/alerts">
             <i class="ni ni-ui-04"></i> Components
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

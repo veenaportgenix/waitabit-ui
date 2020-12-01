@@ -9,7 +9,7 @@ import {
 
 export class CustomReusingStrategy implements RouteReuseStrategy {
 
-    private acceptedRoutes: string[] = ["dashboard","user-profile","tables"];
+    private acceptedRoutes: string[] = ["dashboard","api-information","tables","user-profile"];
 
     private cache: { [key: string]: DetachedRouteHandle } = {};
 

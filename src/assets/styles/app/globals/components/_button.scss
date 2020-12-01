@@ -4,7 +4,7 @@ html [type="button"],
 }
 
 .btn {
-  // border-radius: 3px 15px 3px 15px;
+   border-radius: 3px 15px 3px 15px;
   &.rounded,
   &.btn-rounded {
     border-radius: 40px !important;

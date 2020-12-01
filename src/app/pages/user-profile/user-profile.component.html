@@ -1,8 +1,6 @@
 <div class="header bg-gradient-blue pb-9 pt-6 py-7">
   <div class="container-fluid">
     <div class="header-body">
-
-
     </div>
   </div>
 </div>
@@ -12,102 +10,71 @@
   <!-- Table -->
   <div class="row">
     <div class="col">
-      <div class="card shadow">
-        <div class="card-header border-0">
-          <h3 class="mb-0">App Details</h3>
-        </div>
-        <div class="table-responsive">
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-
-            </thead>
-            <tbody>
-              <div *ngIf="showApiKey" class="card-body">
-                <div class="col-md-8 offset-md-4">
-                  <tr>
-                    <th scope="row">
-                      <span class="mb-0 text-sm">APP NAME</span>
-                    </th>
-                    <th>
-                      <span class="mb-0 text-sm">{{appName}}</span>
-                    </th>
-                  </tr>
+      <div class="col-md-9"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="mb-0">User Profile</h3>
+              <hr>
+            </div>
+          </div>
 
 
-
-                  <tr>
-                    <th scope="row">
-                      <span class="mb-0 text-sm">APP URL</span>
-                    </th>
-
-                    <th><span class="mb-0 text-sm">{{appUrl}}</span>
-                    </th>
-
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      <span class="mb-0 text-sm">PRODUCTION API KEY</span></th>
-
-                    <th><span class="mb-0 text-sm">{{appProdApiKey}}</span>
-                    </th>
-
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      <span class="mb-0 text-sm">DEVELOPER API KEY</span></th>
-
-                    <th><span class="mb-0 text-sm">{{appDevApiKey}}</span>
-                    </th>
-
-                  </tr>
-
-                </div>
+        <div  style="border-radius: 0px;"  >
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+               
+                  <img src="assets/images/logo.png" class="rounded-circle">
               </div>
-              <div *ngIf="!showApiKey" class="card-body">
-
-                <div class="jumbotron">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-8 offset-md-2">
-
-                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                          <div class="form-group">
-                            <label for="appName">Application Name</label>
-                            <input type="text" class="form-control" name="appName" [(ngModel)]="appName"
-                              [ngClass]="{ 'is-invalid': f.submitted && appName.invalid }"
-                              required />
-                            <div *ngIf="f.submitted && appName.invalid" class="invalid-feedback">
-                              <div *ngIf="appName.errors.required">Application Name is required</div>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="appUrl">Website URL</label>
-                            <input type="text" class="form-control" name="appUrl" [(ngModel)]="appUrl"
-                              [ngClass]="{ 'is-invalid': f.submitted && appUrl.invalid }" required />
-                            <div *ngIf="f.submitted && appUrl.invalid" class="invalid-feedback">
-                              <div *ngIf="appUrl.errors.required">Website URL is required</div>
-                            </div>
-                          </div>
-
-
-                          <div class="form-group" (click)="generateApiKey();">
-                            <button class="btn btn-primary">Genetate API Key</button>
-                          </div>
-                        </form>
-                      </div>
+            </div>
+          </div>
+        
+          <div class="card-body pt-0 pt-md-4">
+            <div class="row">
+              <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center mt-md-5" style="margin: 50px;">
+                 
+                  <div>
+                    <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>Blockstack ID
                     </div>
+                    <h3>
+                      <span class="font-weight-light">{{userId}}</span>
+                    </h3>
+                    <span class="description">Did you save your Secret Key? <a href="https://app.blockstack.org/#/settings/secret-key">View Secret Key</a>
+                   <br>  Once lost it’s lost forever, so save it somewhere you won’t forget.</span>
                   </div>
+                
                 </div>
               </div>
-            </tbody>
-          </table>
+              
+            </div>
+  
+            <div class="text-center">
+              <div class="h5 font-weight-300">
+                <i class="ni location_pin mr-2"></i>Company Email ID
+              </div>
+              <h3>
+                devipriyapu@gmail.com
+              </h3>
+              <hr class="my-4" />
+              <div class="h5 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>Gaia Storage 
+              </div>
+              <div>
+             
+                <i class="ni education_hat mr-2"></i> <a href="https://explorer.blockstack.org/name/{{userId}}">https://explorer.blockstack.org/name/{{userId}}</a>
+              </div>
+             
+            </div>
+          </div>
         </div>
-
 
 
       </div>
     </div>
-  </div>
-</div>
+        </div>
+        </div>
+        </div>

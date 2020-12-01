@@ -8,8 +8,8 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
-
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { ApiInformationComponent } from '../../pages/api-information/api-information.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { ToastrModule } from 'ngx-toastr';
@@ -19,14 +19,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     ClipboardModule
   ],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
+     ApiInformationComponent,
     TablesComponent,
+    UserProfileComponent
    
     
   ]

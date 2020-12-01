@@ -11,16 +11,10 @@ import { LandingLayoutComponent } from "./shared/components/layouts/landing-layo
 const routes: Routes = [
   {
     path: "",
-    data:{
-      reuse:true  
-    }, 
     redirectTo: "home",
     pathMatch: "full",
   }, {
     path: '',
-    data:{
-      reuse:true  
-    }, 
     component: AdminLayoutComponent,
     children: [
       {
@@ -31,9 +25,6 @@ const routes: Routes = [
     ]
   }, {
     path: '',
-    data:{
-      reuse:true  
-    }, 
     component: AuthLayoutComponent,
     children: [
       {
@@ -44,9 +35,6 @@ const routes: Routes = [
   },
   {
     path: "",
-    data:{
-      reuse:true  
-    }, 
     component: LandingLayoutComponent,
     children: [
       {
