@@ -12,6 +12,17 @@
                 background: rgba($color: $primary, $alpha: .1);
             }
         }
+        .nav-link2 {
+            border: 0;
+            padding: 1rem;
+            &:not(.disabled) {
+                color: #fff;
+            }
+            &.active {
+                border-bottom: 2px solid $primary;
+                background: rgba($color: $primary, $alpha: .1);
+            }
+        }
         .dropdown-toggle {
             &:after {
                 position: absolute;

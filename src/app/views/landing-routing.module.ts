@@ -4,34 +4,21 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { DocumentationComponent } from './documentation/documentation.component';
+//import { DocumentationComponent } from './documentation/documentation.component';
+import { DocsModule } from '../docs/docs.module'
 
 
 
 const routes: Routes = [
   {
     path: "",
-    data:{
-      reuse:true  
-    }, 
     component: HomeComponent
   },
   
   {
     path: "home",
-    data:{
-      reuse:true  
-    }, 
     component: HomeComponent
-  },
-  {
-    path: "documentation",
-    data:{
-      reuse:true  
-    }, 
-    component: DocumentationComponent
   }
- 
 ];
 
 @NgModule({

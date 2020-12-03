@@ -11,16 +11,17 @@
                 <img src="assets/images/logo.png" alt="logo">
             </a>
             <div class=" text-right">
+                
                 <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
                     [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
                     <i class="eva eva-menu-outline text-30 text-white d-none d-md-block"></i>
-                    <span class="navbar-toggler-icon d-block d-md-none">
+                    <span class="navbar-toggler-icon2 d-block d-md-none">
                         <!-- <i class="eva eva-menu-outline text-30 text-white"></i> -->
                     </span>
-                    <span class="navbar-toggler-icon d-block d-md-none">
+                    <span class="navbar-toggler-icon2 d-block d-md-none">
                         <!-- <i class="eva eva-menu-outline text-30 text-white"></i> -->
                     </span>
-                    <span class="navbar-toggler-icon d-block d-md-none">
+                    <span class="navbar-toggler-icon2 d-block d-md-none">
                         <!-- <i class="eva eva-menu-outline text-30 text-white"></i> -->
                     </span>
 
@@ -63,9 +64,15 @@
                     
                 </li> 
 
-                <li (click)="hidemenu()" class="nav-item">
+  
+           <!-- <li (click)="hidemenu()" class="nav-item">
                     <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="signup();">Sign Up</a>
-                </li> 
+                </li> -->
+                <a name="" id="" style="margin-top: 10px;" class="btn btn-outline-white btn-lg pl-4 pr-4 pb-2  mr-2 mb-4 text-uppercase half-button"
+                href="#" role="button" (click)="signup();">
+          Signup for free
+            </a>
+
             </ul>
         </div>
     </div>

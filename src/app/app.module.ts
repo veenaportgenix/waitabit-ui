@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule} from '@angular/forms';
 import { CustomReusingStrategy } from './services/custom';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -30,6 +31,7 @@ import { CustomReusingStrategy } from './services/custom';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+   
   ],
   declarations: [
     AppComponent,
