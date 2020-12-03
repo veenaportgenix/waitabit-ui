@@ -102,6 +102,45 @@
                 }
             }
         }
+
+        .nav-link2 {
+            padding-left: $navbar-padding-x;
+            padding-right: $navbar-padding-x;
+            font-size: $navbar-nav-link-font-size;
+
+            &.active {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: $nav-link-padding-y;
+                    bottom: $nav-link-padding-y;
+                    border-left: 4px solid $primary;
+                }
+            }
+
+
+            // Icon
+
+            > i {
+                min-width: $navbar-icon-min-width;
+                font-size: .9375rem;
+                line-height: ($font-size-base * $line-height-base);
+            }
+
+
+            // Dropdown
+
+            .dropdown-menu {
+                border: none;
+
+                .dropdown-menu {
+                    margin-left: $dropdown-item-padding-x / 2;
+                }
+            }
+        }
     }
 
 

@@ -30,15 +30,15 @@
         </div>
         <div class="collapse  navbar-collapse flex-grow-1 text-right" id="collapseExample" [ngbCollapse]="isCollapsed">
             <ul class="navbar-nav ml-auto flex-nowrap">
-                <li class="nav-item" (click)="hidemenu()">
-                    <a href="#" scrollTo="intro-wrap" class="nav-link m-2 menu-item nav-active">Home</a>
+                <li class="nav-item2" style="padding: 12px;" (click)="hidemenu()">
+                    <a href="#" scrollTo="intro-wrap" class="nav-link2 m-2 menu-item nav-active">Home</a>
                 </li>
-                <li (click)="hidemenu()" class="nav-item">
-                    <a href="#" scrollTo="extra-feature-wrap" class="nav-link m-2 menu-item nav-active">Features</a>
+                <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
+                    <a href="#" scrollTo="extra-feature-wrap" class="nav-link2 m-2 menu-item nav-active">Features</a>
                 </li>
 
-                <li (click)="hidemenu()" class="nav-item">
-                    <a href="#" scrollTo="left-image-wrap" class="nav-link m-2 menu-item nav-active">How it works</a>
+                <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
+                    <a href="#" scrollTo="left-image-wrap" class="nav-link2 m-2 menu-item nav-active">How it works</a>
                 </li>
                 
                 <!--<li (click)="hidemenu()" class="nav-item">
@@ -48,18 +48,18 @@
 
 
 
-                <li (click)="hidemenu()" class="nav-item">
-                    <a href="#" scrollTo="contacts-wrap" class="nav-link m-2 menu-item">Contact Us</a>
+                <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
+                    <a href="#" scrollTo="contacts-wrap" class="nav-link2 m-2 menu-item nav-active">Contact Us</a>
                 </li>
 
                 
-                <li (click)="hidemenu()" class="nav-item">
+                <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
                     <div *ngIf="this.blockstackService.userSession.isUserSignedIn()">
-                        <a href="#/dashboard"  class="nav-link m-2 menu-item nav-active">Dashboard</a>
+                        <a href="#/dashboard"  class="nav-link2 m-2 menu-item nav-active">Dashboard</a>
                     </div>
 
                     <div *ngIf="!this.blockstackService.userSession.isUserSignedIn()">
-                        <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="login();">Login</a>
+                        <a href="#"  class="nav-link2 m-2 menu-item nav-active" (click)="login();">Login</a>
                     </div>
                     
                 </li> 
@@ -68,7 +68,7 @@
            <!-- <li (click)="hidemenu()" class="nav-item">
                     <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="signup();">Sign Up</a>
                 </li> -->
-                <a name="" id="" style="margin-top: 10px;" class="btn btn-outline-white btn-lg pl-4 pr-4 pb-2  mr-2 mb-4 text-uppercase half-button"
+                <a name="" id="" style="margin-top: 12px;" class="btn btn-outline-white btn-lg pl-4 pr-4 pb-2  mr-2 mb-4 text-uppercase half-button"
                 href="#" role="button" (click)="signup();">
           Signup for free
             </a>
