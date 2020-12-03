@@ -44,7 +44,7 @@
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Company Email Id</label>
                     <div class="col-md-5">
-                      <label class="col-form-label">XXXXXXX</label>
+                      <label class="col-form-label">{{appEmail}}</label>
                     </div>
                   </div>
                   <hr>
@@ -112,7 +112,7 @@
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label">Email</label>
                     <div class="col-md-5">
-                      <input type="text" placeholder="Company Email Address" formControlName="email"
+                      <input type="text" [(ngModel)]="appEmail"placeholder="Company Email Address" formControlName="email"
                         class="form-control form-control-rounded"
                         [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
 

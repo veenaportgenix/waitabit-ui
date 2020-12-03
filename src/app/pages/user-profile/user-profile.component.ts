@@ -13,6 +13,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     let userData =this.blockstackService.userSession.loadUserData();
     this.userId=userData.username
+    console.log(userData)
   }
 
 }

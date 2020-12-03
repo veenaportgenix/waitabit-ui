@@ -2,10 +2,15 @@
 // Pagination
 //
 
-
+.pagination
+{
+    justify-content: flex-end;
+}
 .page-item {
     &.active .page-link {
         box-shadow: $pagination-active-box-shadow;
+       
+
     }
 
     .page-link,

@@ -18,6 +18,7 @@ import { HeaderWhiteComponent } from './components/header-white/header-white.com
 
 import { IntroTenComponent } from './components/intro-ten/intro-ten.component';
 import { HomeComponent } from './home/home.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
@@ -40,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     HeaderWhiteComponent,
     IntroTenComponent,
     HomeComponent,
+    DocumentationComponent
   ],
   providers: [WINDOW_PROVIDERS]
   // exports: ScrollToDirective

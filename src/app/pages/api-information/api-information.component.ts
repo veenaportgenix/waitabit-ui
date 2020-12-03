@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ApiInformationComponent implements OnInit {
 
   public appName: string;
+  public appEmail: string;
   public appUrl: string;
   public appProdApiKey: string;
   public appDevApiKey: string;
@@ -65,7 +66,8 @@ export class ApiInformationComponent implements OnInit {
     var payload =
     {
       appName: this.appName,
-      url: this.appUrl
+      url: this.appUrl,
+      appEmail:this.appEmail
     }
     console.log(payload);
     this.restService
@@ -77,6 +79,7 @@ export class ApiInformationComponent implements OnInit {
           this.appDevApiKey = data.default_app.dev_api_key;
           this.appUrl = data.default_app.provided_url;
           this.appName = data.default_app.app_name;
+          this.appEmail = data.default_app.app_email;
           this.showApiKey = true;
         },
         (error) => {
@@ -97,6 +100,7 @@ export class ApiInformationComponent implements OnInit {
           this.appProdApiKey = data.prod_api_key;
           this.appDevApiKey = data.dev_api_key;
           this.appUrl = data.provided_url;
+          this.appEmail = data.default_app.app_email;
           this.appName = data.app_name;
         },
         (error) => {

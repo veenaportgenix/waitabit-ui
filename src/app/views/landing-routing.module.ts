@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 
 
@@ -23,6 +24,13 @@ const routes: Routes = [
     }, 
     component: HomeComponent
   },
+  {
+    path: "documentation",
+    data:{
+      reuse:true  
+    }, 
+    component: DocumentationComponent
+  }
  
 ];
 

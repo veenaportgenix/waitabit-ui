@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from 'src/app/services/app.service';
 import { BlockstackService } from 'src/app/services/blockstack.service';
 
@@ -9,25 +10,15 @@ import { BlockstackService } from 'src/app/services/blockstack.service';
 })
 export class TablesComponent implements OnInit {
   waitListData = [];
+  pageSize = 25;
+  page = 5;
   local: any
+ showRecords=false;
   constructor(private appService: AppService, private blockstackService: BlockstackService) {
   }
 
   ngOnInit() {
     this.getFile();
-    /* let value  = 100  
-   let a = []; 
-   for(let i = 1; i < value; ++i) { 
-     this.data={
-       "priority": i,
-       "referral_link": "https://cryptoally.io/?&ref_id=AA7T4",
-       "registered_email": "bani@getwaitlist.com",
-       "total_waiters_currently": i - 2,
-       "createdAt":"23/4/2020",
-       "noReferred": 2
-       }
-       this.waitListData.push(this.data)
-   } */
   }
 
   sortByKey(array, key) {
@@ -52,11 +43,13 @@ export class TablesComponent implements OnInit {
             "createdAt": user.records[i].created_at,
             "noReferred": user.records[i].users_referred
           }
+        
           this.waitListData.push(this.local)
+          this.showRecords=true;
         }
         this.sortByKey(this.waitListData, "priority");
       } else {
-        const user = {};
+        this.showRecords=false;
 
       }
     });

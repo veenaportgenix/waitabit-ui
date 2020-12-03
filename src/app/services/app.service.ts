@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class AppService {
 
     downloadFile(data, filename='data') {
-        let csvData = this.ConvertToCSV(data, ['priority','referral_link', 'registered_email', 'createdAt','noReferred']);
+        let csvData = this.ConvertToCSV(data, ['priority', 'registered_email', 'referral_link', 'noReferred','createdAt']);
         console.log(csvData)
         let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
         let dwldLink = document.createElement("a");
@@ -23,21 +23,28 @@ export class AppService {
     }
 
     ConvertToCSV(objArray, headerList) {
+         let headers = ['Priority', 'Email', 'Referal Token', 'Total Referred','Signup Date']
          let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
          let str = '';
-         let row = 'S.No,';
+         let row = '';
 
-         for (let index in headerList) {
-             row += headerList[index] + ',';
+        
+         for (let index in headers) {
+             row = row + headers[index] + ',';
          }
+
          row = row.slice(0, -1);
-         str += row + '\r\n';
+         if(objArray.length == 0) {
+            str += row + '\r\n' + "No records found";
+            return str;
+         } else{
+            str += row + '\r\n';
+         }
          for (let i = 0; i < array.length; i++) {
-             let line = (i+1)+'';
+             let line = '';
              for (let index in headerList) {
                 let head = headerList[index];
-
-                 line += ',' + array[i][head];
+                line = line + array[i][head] + ','
              }
              str += line + '\r\n';
          }
