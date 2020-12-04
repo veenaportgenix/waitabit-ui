@@ -34,7 +34,6 @@ export class BlockstackService {
       // If it is in progress
       this.userSession.handlePendingSignIn()
         .then((userData) => {
-          console.log(userData)
           if (!userData.username) {
             throw new Error('This app requires a username.')
           }
@@ -108,15 +107,12 @@ export class BlockstackService {
 
 
   async storeUserDetailsFireStore() {
-    debugger
     console.log("storeUserDetailsFireStore")
     var payload = this.data
-    console.log(payload);
     this.restService
       .postwo(Constants.DOMAIN_URL + Constants.CLIENT_SIGNUP, payload)
       .subscribe(
         (data: any) => {
-          console.log(data.session);
           this.userSessionToken = data.session;
           //this.localStorage.setItem('currentUser', JSON.stringify(
            // this.data));

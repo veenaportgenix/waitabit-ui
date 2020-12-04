@@ -14,8 +14,6 @@ export class RestService {
    * Http post calls
    */
   postwo(url: string, payload: any) {
-    //console.log("Payload")
-    //console.log(payload)
     return this.http.post(url, payload, {
       //headers: new HttpHeaders({'x-auth-header': this.idtoken})
     });
@@ -23,8 +21,6 @@ export class RestService {
 
 
   post(url: string, payload: any) {
-    //console.log("Payload")
-    //console.log(payload)
     return this.http.post(url, payload, {
       headers: new HttpHeaders({ 'x-auth-header': this.sessionToken })
 
@@ -35,7 +31,6 @@ export class RestService {
    * Http get calls
    */
   get(url: string) {
-    debugger
     this.sessionToken = sessionStorage.getItem('sessionToken')
 
     return this.http.get(url, {

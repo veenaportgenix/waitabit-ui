@@ -99,7 +99,6 @@ export class DashboardComponent implements OnInit {
       .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
       .subscribe(
         (data: any) => {
-          console.log(data);
           sessionStorage.setItem("waitabit-session",JSON.stringify(data)); 
         },
         (error) => {

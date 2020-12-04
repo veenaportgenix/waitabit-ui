@@ -34,7 +34,6 @@ export class TablesComponent implements OnInit {
     this.blockstackService.userSession.getFile("Dc4bc71d2.json").then(data => {
       if (data) {
         const user = JSON.parse(data);
-        console.log(user)
         for (let i = 0; i < user.records.length; ++i) {
           this.local = {
             "priority": user.records[i].rank,

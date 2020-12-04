@@ -66,7 +66,6 @@ export class ApiInformationComponent implements OnInit {
       .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.showApiKey = true;
           this.appProdApiKey = data.prod_api_key;
           this.appDevApiKey = data.dev_api_key;
@@ -90,20 +89,16 @@ export class ApiInformationComponent implements OnInit {
 
 
   generateApiKey() {
-    console.log("storeUserDetailsFireStore")
-    console.log(this.restService.sessionToken)
     var payload =
     {
       appName: this.appName,
       url: this.appUrl,
       appEmail:this.appEmail
     }
-    console.log(payload);
     this.restService
       .post(Constants.DOMAIN_URL + Constants.CLIENT_GENERATE_API_KEY, payload)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.appProdApiKey = data.default_app.prod_api_key;
           this.appDevApiKey = data.default_app.dev_api_key;
           this.appUrl = data.default_app.provided_url;

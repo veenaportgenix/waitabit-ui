@@ -6,7 +6,6 @@ export class AppService {
 
     downloadFile(data, filename='data') {
         let csvData = this.ConvertToCSV(data, ['priority', 'registered_email', 'referral_link', 'noReferred','createdAt']);
-        console.log(csvData)
         let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
         let dwldLink = document.createElement("a");
         let url = URL.createObjectURL(blob);
