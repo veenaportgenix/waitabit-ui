@@ -3,13 +3,15 @@
     <app-intro-ten></app-intro-ten>
     <app-features-two></app-features-two>
 
-   
+    <div *ngIf="isLoading| async">
+      <mat-spinner  strokeWidth="3" [diameter]="80" class="spinner"></mat-spinner>
+   </div>
     <app-best></app-best>
     <app-left-image></app-left-image>
     <app-pricing-one></app-pricing-one>
- 
+   
 
     <app-contact-form></app-contact-form>
     <app-footer></app-footer>
-
+   
   </div>

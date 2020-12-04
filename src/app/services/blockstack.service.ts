@@ -71,6 +71,7 @@ export class BlockstackService {
   }
 
   login() {
+    debugger
     // Login page of Blockstack
     //new blockstack auth
     const authOptions = {
@@ -117,7 +118,9 @@ export class BlockstackService {
           //this.localStorage.setItem('currentUser', JSON.stringify(
            // this.data));
           this.sessionStorage.setItem('sessionToken', data.session);
+     
           this.router.navigate(['/dashboard']);
+
         },
         (error) => {
           console.log(error.error.message);
@@ -128,4 +131,5 @@ export class BlockstackService {
       );
 
   }
+
 }

@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { AppService } from './services/app.service';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule} from '@angular/forms';
 import { CustomReusingStrategy } from './services/custom';
+import {LoaderInterceptor} from './services/loader.interceptor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -31,14 +33,20 @@ import { CustomReusingStrategy } from './services/custom';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule
+ 
+   
    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+   
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+   
     { provide: 'SESSIONSTORAGE', useValue: window.sessionStorage }, 
     AuthGuard, 
     { provide: RouteReuseStrategy, useClass: CustomReusingStrategy },

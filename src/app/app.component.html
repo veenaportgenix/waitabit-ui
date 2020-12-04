@@ -1,2 +1,6 @@
-<div *ngif="showLoadingIndicator">Loading...</div>
+
 <router-outlet></router-outlet>
+<div *ngIf="isLoading| async">
+    <mat-spinner color="accent" strokeWidth="3" [diameter]="80" class="spinner"></mat-spinner>
+</div>
+

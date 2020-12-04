@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private restService: RestService, private blockstackService: BlockstackService,@Inject('SESSIONSTORAGE') private sessionStorage: Storage) {
-    this.getFile();
+    //this.getFile();
     this.getApiKey();
    }
 
@@ -67,9 +67,9 @@ export class DashboardComponent implements OnInit {
     this.barMonthChart.update();
   }
 
-  getFile() {
+  getFile(filename) {
     let options = { decrypt: true };
-    this.blockstackService.userSession.getFile("Dc4bc71d2_stats.json").then(data => {
+    this.blockstackService.userSession.getFile(filename + "_stats.json").then(data => {
       if (data) {
         const statsData = JSON.parse(data);
         this.totalSignup = statsData.total;
@@ -92,14 +92,19 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+  
   getApiKey() {
-    debugger
-    console.log("Fetching API Key")
-    this.restService
+    const existingData = sessionStorage.getItem("waitabit-session")
+    if(existingData) {
+      const data = JSON.parse(existingData);
+      this.getFile(data.prod_api_key);
+    } else{
+      this.restService
       .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
       .subscribe(
         (data: any) => {
           sessionStorage.setItem("waitabit-session",JSON.stringify(data)); 
+          this.getFile(data.prod_api_key);
         },
         (error) => {
           //token expires
@@ -108,6 +113,9 @@ export class DashboardComponent implements OnInit {
           }
         }
       );
+    }
+    console.log("Fetching API Key")
+    
   }
 
 

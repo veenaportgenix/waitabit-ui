@@ -1,4 +1,6 @@
 import {Component, OnInit} from "@angular/core";
+import { LoaderService } from '../../services/loader.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: "app-landing-v10",
@@ -6,9 +8,10 @@ import {Component, OnInit} from "@angular/core";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
+  isLoading: Subject<boolean> = this.loader.isLoading;
   backgroundColor = "landing-indigo";
 
-  constructor() {}
+  constructor(private loader: LoaderService) {}
 
   ngOnInit() {}
 
