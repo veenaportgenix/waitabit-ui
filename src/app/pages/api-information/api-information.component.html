@@ -1,11 +1,11 @@
-<div class="header bg-gradient-blue pb-9 pt-6 py-7">
+<div class="header  pb-9 pt-6 py-7" style="background-color: #4050b5;">
   <div class="container-fluid">
     <div class="header-body">
     </div>
   </div>
 </div>
 
-<div class="container-fluid mt--7">
+<div class="container mt--7">
   <!-- Table -->
   <div class="row">
     <div class="col">
@@ -13,7 +13,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-5">
               <h3 class="mb-0">API Information</h3>
               <hr>
             </div>
@@ -22,117 +22,128 @@
           <div *ngIf="showApiKey" class="card-body">
             <div class="card-info">
               <div class="card-body">
-                <h5> <i class="ni ni-tag">Dashboard and Tables will only show production API key data. For testing use developement API Key</i></h5>
+                <h5> <i class="fa fa-info-circle" aria-hidden="true">Dashboard and Tables will only show production API key data. For testing use
+                    developement API Key</i></h5>
               </div>
             </div>
-            <div class="row justify-content-around">
-              <div class="col-md-10">
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Application Name</label>
-                    <div class="col-md-5">
-                      <label class="col-form-label">{{appName}}</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Application URL</label>
-                    <div class="col-md-5">
-                      <label class="col-form-label">{{appUrl}}</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Company Email Id</label>
-                    <div class="col-md-5">
-                      <label class="col-form-label">{{appEmail}}</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Production API</label>
-                    <div class="col-md-5">
-                      <label class="col-form-label">{{appProdApiKey}}</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label" style="color:rgb(77, 77, 77);">Development API</label>
-                    <div class="col-md-5">
-                      <label class="col-form-label">{{appDevApiKey}}</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <div class="col-md-12">
-                      <div class="text-center">
-                        <button class="btn half-button btn-primary btn-lg active" style="margin:10px;">How to integrate</button>
-                      </div>
-                    </div>
-                  </div>
-                  
+            <div class="row justify-content-around" >
+              <div class="form-group col">
+                <label class="col-md-6 col-form-label" style="color:rgb(77, 77, 77);">Application Name</label>
+              </div>
+              <div class="form-group col">
+                <label class="col-md-6 col-form-label">{{appName}}</label>
               </div>
             </div>
+            <hr>
+            <div class="row">
+              <div class="form-group col">
+                <label class="col-md-8 col-form-label" style="color:rgb(77, 77, 77);">Company Email Id</label>
+              </div>
+              <div class="form-group col">
+                <label class="col-form-label">{{appEmail}}</label>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="form-group col">
+                <label class="col-md-8 col-form-label" style="color:rgb(77, 77, 77);">Application URL</label>
+              </div>
+              <div class="form-group col">
+                <label class="col-form-label">{{appUrl}}</label>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="form-group col">
+                <label class="col-md-8 col-form-label" style="color:rgb(77, 77, 77);">Production API</label>
+              </div>
+              <div class="form-group col">
+                <label class="col-form-label">{{appProdApiKey}}</label>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="form-group col">
+                <label class="col-md-8 col-form-label" style="color:rgb(77, 77, 77);">Development API</label>
+                </div>
+              <div class="form-group col">
+                <label class="col-form-label">{{appDevApiKey}}</label>
+              </div>
+            </div>
+            <hr>
+            <button class="btn half-button btn-primary btn-lg active float-right" style="margin:10px;">How to
+              integrate</button>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="text-center">
+                    
+                  </div>
+                </div>
+              </div>
+    
           </div>
 
-          
-                
+        </div>
 
 
-          <div *ngIf="!showApiKey" class="card-body">
-            <div class="card-info">
-              <div class="card-body">
-                <h5> <i class="ni ni-tag">Email is required for operation notification only </i></h5>
-              </div>
+
+
+
+        <div *ngIf="!showApiKey" class="card-body">
+          <div class="card-info">
+            <div class="card-body">
+              <h5> <i class="fa fa-info-circle" aria-hidden="true"> Email is required for operation notification only </i></h5>
             </div>
-            <div class="row justify-content-around">
-              <div class="col-md-10">
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label">Website Name</label>
-                    <div class="col-md-5">
-                      <input [(ngModel)]="appName" type="text" placeholder="BlockStack" class="form-control form-control-rounded"
-                        formControlName="appName" [ngClass]="{ 'is-invalid': submitted && f.appName.errors }" />
-                      <div *ngIf="submitted && f.appName.errors" class="invalid-feedback">
-                        <div *ngIf="f.appName.errors.required">Application Name is required</div>
-                      </div>
+          </div>
+          <div class="row justify-content-around">
+            <div class="col-md-10">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group row">
+                  <label class="col-md-5 col-form-label">Website Name</label>
+                  <div>
+                    <input [(ngModel)]="appName" type="text" placeholder="BlockStack"
+                      class="form-control form-control-rounded" formControlName="appName"
+                      [ngClass]="{ 'is-invalid': submitted && f.appName.errors }" />
+                    <div *ngIf="submitted && f.appName.errors" class="invalid-feedback">
+                      <div *ngIf="f.appName.errors.required">Application Name is required</div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label">Website URL</label>
-                    <div class="col-md-5">
-                      <input type="text"  [(ngModel)]="appUrl" placeholder="eg:https://waitabit.dev/waitlist" formControlName="appUrl"
-                        class="form-control form-control-rounded"
-                        [ngClass]="{ 'is-invalid': submitted && f.appUrl.errors }" />
-                      <div *ngIf="submitted && f.appUrl.errors" class="invalid-feedback">
-                        <div *ngIf="f.appUrl.errors.required">Url Name is required</div>
-                      </div>
+                <div class="form-group row">
+                  <label class="col-md-5 col-form-label">Website URL</label>
+                  <div>
+                    <input type="text" [(ngModel)]="appUrl" placeholder="eg:https://waitabit.dev/waitlist"
+                      formControlName="appUrl" class="form-control form-control-rounded"
+                      [ngClass]="{ 'is-invalid': submitted && f.appUrl.errors }" />
+                    <div *ngIf="submitted && f.appUrl.errors" class="invalid-feedback">
+                      <div *ngIf="f.appUrl.errors.required">Url Name is required</div>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <label class="col-md-5 col-form-label">Email</label>
-                    <div class="col-md-5">
-                      <input type="text" [(ngModel)]="appEmail"placeholder="Company Email Address" formControlName="email"
-                        class="form-control form-control-rounded"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-5 col-form-label">Email</label>
+                  <div>
+                    <input type="text" [(ngModel)]="appEmail" placeholder="Company Email Address"
+                      formControlName="email" class="form-control form-control-rounded"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
 
-                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Email is required</div>
-                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                      </div>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="form-group row">
-                    <div class="col-md-12">
-                      <div class="text-center">
-                        <button class="btn half-button btn-primary btn-lg active" style="margin:10px;">Generate API
-                          Key</button>
-                      </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">
+                      <button class="btn half-button btn-primary btn-lg active" style="margin:10px;">Generate API
+                        Key</button>
                     </div>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

@@ -24,11 +24,12 @@ export class ApiInformationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private blockstackService: BlockstackService, private restService: RestService, @Inject('LOCALSTORAGE') private localStorage: Storage) { 
+  constructor(private formBuilder: FormBuilder,private router: Router, private blockstackService: BlockstackService, private restService: RestService) { 
     this.getApiKey();
   }
 
   ngOnInit() {
+
 
     this.registerForm = this.formBuilder.group({
            
@@ -37,7 +38,7 @@ export class ApiInformationComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       
   });
-    this.getApiKey();
+    
   }
    // convenience getter for easy access to form fields
    get f() { return this.registerForm.controls; }
@@ -49,8 +50,7 @@ export class ApiInformationComponent implements OnInit {
        if (this.registerForm.invalid) {
            return;
        }
-      
-       
+
         this.generateApiKey();
 
        // display form values on success
@@ -58,9 +58,38 @@ export class ApiInformationComponent implements OnInit {
        
 
    }
-  generateApiKey() {
+ 
+  getApiKey() {
+    debugger
+    console.log("Fetching API Key")
+    this.restService
+      .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.showApiKey = true;
+          this.appProdApiKey = data.prod_api_key;
+          this.appDevApiKey = data.dev_api_key;
+          this.appUrl = data.provided_url;
+          this.appEmail = data.app_email;
+          this.appName = data.app_name;
+        },
+        (error) => {
+          //token expires
+          if (error.status === 401) {
+            this.showApiKey = false;
+            this.blockstackService.logout()
+            this.router.navigate(['home']);
+          } else {
+            console.log(error)
+          }
+        }
+      );
 
-   
+  }
+
+
+  generateApiKey() {
     console.log("storeUserDetailsFireStore")
     console.log(this.restService.sessionToken)
     var payload =
@@ -89,31 +118,4 @@ export class ApiInformationComponent implements OnInit {
 
   }
 
-  getApiKey() {
-    console.log("Fetching API Key")
-    this.restService
-      .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
-      .subscribe(
-        (data: any) => {
-          console.log(data);
-          this.showApiKey = true;
-          this.appProdApiKey = data.prod_api_key;
-          this.appDevApiKey = data.dev_api_key;
-          this.appUrl = data.provided_url;
-          this.appEmail = data.default_app.app_email;
-          this.appName = data.app_name;
-        },
-        (error) => {
-          //token expires
-          if (error.status === 401) {
-            this.showApiKey = false;
-            this.blockstackService.logout()
-            this.router.navigate(['home']);
-          } else {
-            console.log(error)
-          }
-        }
-      );
-
-  }
 }

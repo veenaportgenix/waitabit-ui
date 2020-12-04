@@ -11,8 +11,6 @@ import { useConnect } from '@blockstack/connect';
 import { authenticate } from '@blockstack/connect';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +24,7 @@ export class BlockstackService {
   /**
    * Constructor
    */
-  constructor(private restService: RestService, private router: Router, @Inject('LOCALSTORAGE') private localStorage: Storage) {
+  constructor(private restService: RestService, private router: Router,@Inject('SESSIONSTORAGE') private sessionStorage: Storage) {
     const appConfig = new AppConfig(['store_write', 'publish_data']);
     this.userSession = new UserSession({ appConfig: appConfig });
 
@@ -103,13 +101,14 @@ export class BlockstackService {
     // Logout
     console.log("In lout function")
     this.userSession.signUserOut();
-    this.localStorage.removeItem('currentUser');
-    this.localStorage.removeItem('sessionToken');
+    //this.localStorage.removeItem('currentUser');
+    this.sessionStorage.removeItem('sessionToken');
     this.router.navigate(['']);
   }
 
 
   async storeUserDetailsFireStore() {
+    debugger
     console.log("storeUserDetailsFireStore")
     var payload = this.data
     console.log(payload);
@@ -119,14 +118,14 @@ export class BlockstackService {
         (data: any) => {
           console.log(data.session);
           this.userSessionToken = data.session;
-          this.localStorage.setItem('currentUser', JSON.stringify(
-            this.data));
-          this.localStorage.setItem('sessionToken', data.session);
+          //this.localStorage.setItem('currentUser', JSON.stringify(
+           // this.data));
+          this.sessionStorage.setItem('sessionToken', data.session);
           this.router.navigate(['/dashboard']);
         },
         (error) => {
           console.log(error.error.message);
-          this.localStorage.removeItem('blockstack-session');
+          //this.localStorage.removeItem('blockstack-session');
 
           this.userSession.signUserOut();
         }

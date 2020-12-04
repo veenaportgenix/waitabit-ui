@@ -39,7 +39,7 @@ import { CustomReusingStrategy } from './services/custom';
     AuthLayoutComponent,
   ],
   providers: [
-    { provide: 'LOCALSTORAGE', useValue: window.localStorage }, 
+    { provide: 'SESSIONSTORAGE', useValue: window.sessionStorage }, 
     AuthGuard, 
     { provide: RouteReuseStrategy, useClass: CustomReusingStrategy },
     AppService

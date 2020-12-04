@@ -1,4 +1,4 @@
-<div class="header bg-gradient-blue pb-9 pt-6 py-7">
+<div class="header  pb-9 pt-6 py-7" style="background-color: #4050b5;">
   <div class="container-fluid">
     <div class="header-body">
 
@@ -13,13 +13,16 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
-          <div class="row">
-            <div class="col-10">
+          
               <h3 class="mb-0">Waitlist Table</h3>
-            </div>
-            <div class="col-2"><button class="btn half-button btn-primary btn-lg active" (click)="export()"> Export
-                Waitlist</button></div>
-          </div>
+         
+           
+              <a  class="btn half-button btn-primary btn-lg active float-right" (click)="export()">Export
+                Waitlist</a>
+             
+      
+        
+        
         </div>
         <div *ngIf="!showRecords" class="table-responsive">
           <table class="table align-items-center table-flush">

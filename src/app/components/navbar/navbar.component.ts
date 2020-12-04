@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Inject } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { JsonPipe, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import { BlockstackService } from 'src/app/services/blockstack.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +13,10 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  public user;
-  constructor(location: Location, private element: ElementRef, private router: Router, private blockstackService: BlockstackService, @Inject('LOCALSTORAGE') private localStorage: Storage) {
+
+  constructor(location: Location, private element: ElementRef, private router: Router) {
     this.location = location;
-    let data = JSON.parse(this.localStorage.currentUser);
-    this.user = data.username
+   
   }
 
   ngOnInit() {

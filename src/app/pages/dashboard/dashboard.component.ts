@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import Chart from 'chart.js';
 import { RestService } from "../../services/rest.services";
 import { Constants } from "../../common/constants";
@@ -23,21 +23,22 @@ export class DashboardComponent implements OnInit {
   public monthChart;
   public barMonthChart;
   //public clicked1: boolean = true;
-  public totalSignup;
-  public weeklySignup;
-  public dailySignup;
-  public totalReferral;
+  public totalSignup = '-'
+  public weeklySignup = '-'
+  public dailySignup = '-'
+  public totalReferral = '-'
 
 
-  constructor(private restService: RestService, private blockstackService: BlockstackService) { }
+  constructor(private restService: RestService, private blockstackService: BlockstackService,@Inject('SESSIONSTORAGE') private sessionStorage: Storage) {
+    this.getFile();
+    this.getApiKey();
+   }
 
   ngOnInit() {
-    this.getFile();
-
-
+    
   }
 
-  updateChartComponent(){
+  updateChartComponent() {
     var chartOrders = document.getElementById('chart-orders');
     parseOptions(Chart, chartOptions());
 
@@ -48,13 +49,13 @@ export class DashboardComponent implements OnInit {
     });
 
 
-     var chartSales = document.getElementById('chart-sales');
-     this.monthChart = new Chart(chartSales, {
-       type: 'line',
-       options: monthSignupChart.options,
-       data: monthSignupChart.data
-     }); 
-     this.updateOptions();
+    var chartSales = document.getElementById('chart-sales');
+    this.monthChart = new Chart(chartSales, {
+      type: 'line',
+      options: monthSignupChart.options,
+      data: monthSignupChart.data
+    });
+    this.updateOptions();
   }
 
   public updateOptions() {
@@ -81,7 +82,34 @@ export class DashboardComponent implements OnInit {
         ];
         this.data = this.datasets[0];
         this.updateChartComponent();
+      } else{
+        this.datasets =[
+          ['NA']
+          ['NA']
+        ];
+        this.data = this.datasets[0];
+        this.updateChartComponent();
       }
     });
   }
+  getApiKey() {
+    debugger
+    console.log("Fetching API Key")
+    this.restService
+      .get(Constants.DOMAIN_URL + Constants.CLIENT_SHOW_GENERATED_API_KEY)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          sessionStorage.setItem("waitabit-session",JSON.stringify(data)); 
+        },
+        (error) => {
+          //token expires
+          if (error.status === 401) {
+           
+          }
+        }
+      );
+  }
+
+
 }
