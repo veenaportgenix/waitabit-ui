@@ -5,8 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 //import { DocumentationComponent } from './documentation/documentation.component';
-import { DocsModule } from '../docs/docs.module'
-
 
 
 const routes: Routes = [

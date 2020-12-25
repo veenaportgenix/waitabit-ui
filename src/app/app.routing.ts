@@ -8,7 +8,8 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 
 import { AuthGuard } from './services/AuthGuard';
 import { LandingLayoutComponent } from "./shared/components/layouts/landing-layout/landing-layout.component";
-import { DocsModule } from './docs/docs.module'
+
+import { DocumentationComponent } from './documentaion/documentation.component';
 
 const routes: Routes = [
   {
@@ -46,25 +47,14 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'docs',
-    children: [
-      {
-        path: "",
-        loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule)
-      },
-    ],
-    
-  }
+  { path: 'docs', component: DocumentationComponent },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

@@ -22,8 +22,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
-    private router: Router,
-    private blockstackService: BlockstackService
+    public router: Router,
+    public blockstackService: BlockstackService
   ) { }
 
   ngOnInit() { }
@@ -54,15 +54,13 @@ export class HeaderComponent implements OnInit {
     //debugger
     if (this.blockstackService.userSession.isUserSignedIn()) {
       let userData = this.blockstackService.userSession.loadUserData();
-      //console.log(userData)
-      //console.log(userData.username)
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['dashboard']);
     } else if (!this.blockstackService.userSession.isUserSignedIn() && this.blockstackService.userSession.isSignInPending()) {
       // If it is in progress
       this.blockstackService.userSession.handlePendingSignIn()
         .then((userData) => {
           console.log(userData)
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['dashboard']);
         });
     } else {
       this.blockstackService.login();

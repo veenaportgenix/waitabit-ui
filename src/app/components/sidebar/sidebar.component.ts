@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
   public isCollapsed = true;
   public user;
   isLoggedIn = false;
-  constructor(private router: Router, private blockstackService: BlockstackService) {
+  constructor(public router: Router, public blockstackService: BlockstackService) {
     
   }
 

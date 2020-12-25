@@ -21,6 +21,25 @@ import { CustomReusingStrategy } from './services/custom';
 import {LoaderInterceptor} from './services/loader.interceptor';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+import { DocumentationComponent } from './documentaion/documentation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+
+
+
+
+
+ 
+
+
+
+
+
 
 @NgModule({
   imports: [
@@ -33,8 +52,15 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
- 
+    MatProgressSpinnerModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+   
+   
    
    
   ],
@@ -42,15 +68,20 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+  
+    DocumentationComponent,
+  
+
    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-   
+    //{provide: LocationStrategy, useClass: PathLocationStrategy},
     { provide: 'SESSIONSTORAGE', useValue: window.sessionStorage }, 
     AuthGuard, 
     { provide: RouteReuseStrategy, useClass: CustomReusingStrategy },
-    AppService
+    AppService,
+    
   ],
   bootstrap: [AppComponent]
 })

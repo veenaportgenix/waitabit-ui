@@ -39,7 +39,7 @@ export class BlockstackService {
           }
         });
 
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/"]);
     }
 
   }
@@ -71,7 +71,6 @@ export class BlockstackService {
   }
 
   login() {
-    debugger
     // Login page of Blockstack
     //new blockstack auth
     const authOptions = {
@@ -103,7 +102,8 @@ export class BlockstackService {
     this.userSession.signUserOut();
     //this.localStorage.removeItem('currentUser');
     this.sessionStorage.removeItem('sessionToken');
-    this.router.navigate(['']);
+    //this.router.navigate(['/']);
+    //this.router.navigate(['/home']);
   }
 
 

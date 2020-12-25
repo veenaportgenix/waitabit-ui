@@ -42,35 +42,44 @@
                 </li>
                 
                 <!--<li (click)="hidemenu()" class="nav-item">
-                    <a href="#" scrollTo="pricing-wrap" class="nav-link m-2 menu-item">Pricing</a>
+                    <a href=#"scrollTo="pricing-wrap" class="nav-link m-2 menu-item">Pricing</a>
                 </li>-->
 
 
 
 
                 <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
-                    <a href="#" scrollTo="contacts-wrap" class="nav-link2 m-2 menu-item nav-active">Contact Us</a>
+                    <a href="#"scrollTo="contacts-wrap" class="nav-link2 m-2 menu-item nav-active">Contact Us</a>
                 </li>
 
                 
                 <li (click)="hidemenu()" style="padding: 12px;" class="nav-item2">
                     <div *ngIf="this.blockstackService.userSession.isUserSignedIn()">
-                        <a href="#/dashboard"  class="nav-link2 m-2 menu-item nav-active">Dashboard</a>
+                        <a href="/dashboard"  class="nav-link2 m-2 menu-item nav-active">Dashboard</a>
                     </div>
 
                     <div *ngIf="!this.blockstackService.userSession.isUserSignedIn()">
-                        <a href="#"  class="nav-link2 m-2 menu-item nav-active" (click)="login();">Login</a>
+
+                        <a name="" id="" routerLink="/sessions/signin"
+                        class="nav-link2 m-2 menu-item nav-active"
+                        href="/" role="button"  (click)="login();">
+                        Login
+                        </a>
+                        
                     </div>
                     
                 </li> 
 
   
            <!-- <li (click)="hidemenu()" class="nav-item">
-                    <a href="#"  class="nav-link m-2 menu-item nav-active" (click)="signup();">Sign Up</a>
+                    <a href="#" class="nav-link m-2 menu-item nav-active" (click)="signup();">Sign Up</a>
                 </li> -->
-                <a name="" id="" style="margin-top: 12px;" class="btn btn-outline-white btn-lg pl-4 pr-4 pb-2  mr-2 mb-4 text-uppercase half-button"
-                href="#" role="button" (click)="signup();">
-          Signup for free
+                <a name="" id="" routerLink="/sessions/signin" style="margin-top: 12px;" 
+                class="btn btn-outline-white btn-lg pl-4 pr-4 pb-2  mr-2 mb-4 text-uppercase half-button"
+                href="/" role="button"  (click)="signup();">
+
+            
+              Signup for free
             </a>
 
             </ul>

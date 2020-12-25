@@ -44,3 +44,5 @@ $app-theme: mat-light-theme($app-primary, $app-accent);
 @include angular-material-theme($app-theme);
 // Here we include the mix for ng-docx
 @include ng-docx($palette-primary);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

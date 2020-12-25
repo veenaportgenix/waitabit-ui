@@ -54,7 +54,7 @@ export class ApiInformationComponent implements OnInit {
         this.generateApiKey();
 
        // display form values on success
-       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+       //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
        
 
    }
@@ -78,7 +78,7 @@ export class ApiInformationComponent implements OnInit {
           if (error.status === 401) {
             this.showApiKey = false;
             this.blockstackService.logout()
-            this.router.navigate(['home']);
+            
           } else {
             console.log(error)
           }
