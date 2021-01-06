@@ -1,0 +1,190 @@
+<div id="wrapper">
+
+  <div class="container">
+
+      <section id="top" class="section docs-heading">
+
+          <div class="row">
+              <div class="col-md-12">
+                <div class="border-bottom pt-5 pb-2 mt-2 mb-5">
+                  <h1 class="mt-4 pt-5" style="padding-top: 0px!important;">Waitabit API</h1>
+                </div>
+                  
+                  <!-- end title -->
+              </div>
+              <!-- end 12 -->
+          </div>
+          <!-- end row -->
+      </section>
+      <!-- end section -->
+      <div class="row">
+
+       
+          <div class="col-md-9">
+           
+
+           
+
+              <section id="line1" class="section">
+
+                  <div class="row">
+                      <div class="col-md-12 left-align">
+                          <h2 class="dark-text">Authentication</h2>
+                      </div>
+                      <!-- end col -->
+                  </div>
+                  <!-- end row -->
+
+                  <div class="row">
+                      <div class="col-md-12">
+                          <p>You need to be authenticated for all API requests. You can generate an API key in your developer dashboard.
+
+                            Add the API key to all requests as a GET parameter.
+                           
+                          </p>
+                           <h4 class="text-gray">Header</h4>
+                         
+                             <hr>
+                          <dl>
+                            <dt>Production API Key</dt>
+                            <dd> Bearer's Production API Key is used only for production</dd>
+                            
+                          </dl>
+                          <dl>
+                            <dt>Development API Key</dt>
+                            <dd> Bearer's Development API Key is used for testing</dd>
+                            
+                          </dl>
+    
+                     <hr>
+                      </div>
+                     
+                      <!-- end col -->
+                  </div>
+                  <!-- end row -->
+
+              </section>
+              <!-- end section -->
+<br>
+              <section id="line1" class="section">
+
+                <div class="row">
+                    <div class="col-md-12 left-align">
+                        <h2 class="dark-text">/subscribe <span class="post-endpoint">POST</span></h2>
+
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                      <p>subscribe is a single POST-endpoint to handle your Waitlist
+                      </p>
+              
+                         <h4 class="text-gray">Parameters</h4>
+                       
+                           <hr>
+                           
+                        <dl>
+                          <dt>email</dt>
+                          <dd> email id </dd>
+                          
+                        </dl>
+                        <dl>
+                          <dt>current_url</dt>
+                          <dd> Url of your website</dd>
+                          
+                        </dl>
+                        
+                   <hr>
+
+                 
+
+                  
+            </div>
+                   
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+
+            </section>
+            <pre><code [highlight]="code" [lineNumbers]="true">{{code}}</code></pre>
+
+      
+
+
+
+
+
+              
+              
+
+          </div>
+          <!-- // end .col -->
+
+      </div>
+      <!-- // end .row -->
+
+  </div>
+  <!-- // end container -->
+
+</div>
+<!-- end wrapper -->
+
+                       <!-- <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">Code</th>
+                           
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>200</td>
+                                <td>OK</td>
+                                <td>Success</td>
+                              </tr>
+                              <tr>
+                                <td>201</td>
+                                <td>Created</td>
+                                <td>Creation Successful</td>
+                              </tr>
+                              <tr>
+                                <td>400</td>
+                                <td>Bad Request</td>
+                                <td>We could not process that action</td>
+                              </tr>
+                              <tr>
+                                <td>403</td>
+                                <td>Forbidden</td>
+                                <td>We couldn’t authenticate you</td>
+                              </tr>
+                            </tbody>
+                          </table> -->
+
+
+                           <!-- tabs start -->
+                           <!-- <div id="tabs" >
+                            <ul class="nav nav-tabs">
+                              <li class="nav-item">
+                                <a class="nav-link active" [ngClass]="{ 'active':activeTab==='html'}" (click)="html('html')"
+                                   data-toggle="tab">Html</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" [ngClass]="{ 'active':activeTab==='result'}" data-toggle="tab"
+                                   (click)="result('result')">Results</a>
+                              </li>
+                            </ul>
+                          
+                            <div class="tab-content">
+                              <div class="tab-pane" id="html" [ngClass]="{ 'active':activeTab==='html'}">
+                            HTML CODE
+                          
+                              </div>
+                              <div class="tab-pane" id="results" [ngClass]="{ 'active':activeTab==='result'}">results screen</div>
+                            </div>
+                          </div> -->
+                          <!-- tabs end -->

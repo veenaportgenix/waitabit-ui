@@ -47,7 +47,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'docs', component: DocumentationComponent },
+  { path: 'public', loadChildren: './public/public.module#PublicModule'},
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+dl {
+    width: 100%;
+    overflow: hidden;
+    /* background: #ff0; */
+    padding: 0;
+    margin: 0
+  }
+  dt {
+      font-size: 16px;
+    float: left;
+    width: 30%;
+    /* adjust the width; make sure the total of both is 100% 
+    background: #cc0;*/
+    padding: 10px;
+    margin: 0
+  }
+  dd {
+    font-size: 16px;
+    float: left;
+    width: 50%;
+    /* adjust the width; make sure the total of both is 100% */
+    /* background: #dd0; */
+    padding: 10px;
+    margin: 0
+  }
+  p{
+      margin: 10px;
+  }
+
+  .post-endpoint
+  {
+color: dodgerblue;
+font-size: 16px;
+padding: 2px;
+  }
