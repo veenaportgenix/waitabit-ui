@@ -9,7 +9,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { AuthGuard } from './services/AuthGuard';
 import { LandingLayoutComponent } from "./shared/components/layouts/landing-layout/landing-layout.component";
 
-import { DocumentationComponent } from './documentaion/documentation.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 const routes: Routes = [
   {
@@ -47,7 +47,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'public', loadChildren: './public/public.module#PublicModule'},
+  { path: 'docs', loadChildren: './documentation/documentation.module#DocumentationModule'},
 ];
 
 @NgModule({

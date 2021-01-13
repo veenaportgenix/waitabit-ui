@@ -21,7 +21,7 @@ import { CustomReusingStrategy } from './services/custom';
 import {LoaderInterceptor} from './services/loader.interceptor';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-import { DocumentationComponent } from './documentaion/documentation.component';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,15 +29,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-
-
-
-
-
- 
-
-
-
+import { HighlightService } from './services/highligher.service';
 
 
 
@@ -68,8 +60,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-  
-    DocumentationComponent,
+
   
 
    
@@ -81,7 +72,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     AuthGuard, 
     { provide: RouteReuseStrategy, useClass: CustomReusingStrategy },
     AppService,
-    
+    HighlightService,
   ],
   bootstrap: [AppComponent]
 })

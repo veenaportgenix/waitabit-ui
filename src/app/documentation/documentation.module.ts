@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { PublicRoutingModule } from './public-routing/public-routing.module';
+import { DocumentationRoutingModule } from './documentation-routing.module';
+
+
 
 
 
 @NgModule({
   imports: [
-    PublicRoutingModule,
+    DocumentationRoutingModule,
     NgbModule,
     NgbNavModule,
   ],
   declarations: []  
 })
-export class PublicModule { }
+export class DocumentationModule { }

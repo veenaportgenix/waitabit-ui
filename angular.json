@@ -32,6 +32,8 @@
               "src/assets/scss/argon.scss",
               "src/assets/styles/app/_app.scss",
               "./node_modules/ng-docx/assets/styles/ng-docx.scss"
+             
+               
             ],
             "scripts": [
               "./node_modules/chart.js/dist/Chart.min.js",

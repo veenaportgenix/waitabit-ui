@@ -1,5 +1,5 @@
 <p align="center">
-    <img  alt="Waitabit Logo"src="assets/images/logo.png"  width="12%">
+    <img  alt="Waitabit Logo"src="assets/images/logo_primary.png"  width="12%">
 </p>
 
 

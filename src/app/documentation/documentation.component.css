@@ -34,6 +34,15 @@ body {
       margin-left: -15rem;
     }
   }
+  .sidebar-heading
+  {
+background-color: #5e72e4;
+color: white;
+  }
+  .sidebar
+  {
+    background-color:#f6f6f6;
+  }
 
   .icon {
   height: 16px;
@@ -41,3 +50,4 @@ body {
   display: block;
   /* Other styles here */
 }
+

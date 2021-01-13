@@ -61,7 +61,7 @@ export class BlockstackService {
       },
       appDetails: {
         name: 'Waitabit',
-        icon: './assets/images/logo.png'
+        icon: './assets/images/logo-icon-64x64.png'
       }
     };
 
@@ -85,7 +85,7 @@ export class BlockstackService {
       },
       appDetails: {
         name: 'Waitabit',
-        icon: './assets/images/logo.png'
+        icon: './assets/images/logo-icon-64x64.png'
       }
     };
     authenticate(authOptions)

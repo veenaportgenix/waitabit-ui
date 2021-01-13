@@ -1,0 +1,63 @@
+*{
+	box-sizing: border-box;
+	
+}
+.one {
+	color: skyblue; 
+}
+.two input{
+	
+	width:250px;
+}
+.col-md-4>button{
+		margin-left: -70px;
+	}
+
+.foot1{
+	float: left;
+}
+.foot2{
+	text-align: right;
+	width: 100%;
+}
+.foot2 a{
+	text-decoration: none;
+	color: black;
+}
+.foot2 a:hover{
+	color: skyblue;
+}
+@media screen and (max-width:600px) {
+  .container,footer{
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+	.col-md-4>button{
+		margin-left: 0px;
+	}
+	
+	.image{
+		width: 100%vw;
+		text-align: left;
+		
+	}
+	body{
+		text-align: center;
+	}
+	.column{
+		width: 100%vw;
+		text-align: center;
+	}
+	form,input,button,{
+	
+	text-align: center;
+  
+}
+	
+
+
+
+.foot2{
+	text-align: right;
+	width: 100%vw;
+}
+}

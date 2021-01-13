@@ -1,0 +1,20 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+
+@Component({
+  selector: 'app-documentation',
+  templateUrl: './documentation.component.html',
+  styleUrls: ['./documentation.component.css']
+})
+
+export class DocumentationComponent {
+  title = 'Waitabit';
+  
+  
+  ngOnInit() {
+               
+  }
+  
+}
+
+  

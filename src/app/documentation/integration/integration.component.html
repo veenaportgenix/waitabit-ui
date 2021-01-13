@@ -7,9 +7,9 @@
           <div class="row">
               <div class="col-md-12">
                 <div class="border-bottom pt-5 pb-2 mt-2 mb-5">
-                  <h1 class="mt-4 pt-5" style="padding-top: 0px!important;">Waitabit API</h1>
+                  <h1 class="mt-1 pt-5" style="padding-top: 0px!important;">Waitabit API</h1>
                 </div>
-                  
+               
                   <!-- end title -->
               </div>
               <!-- end 12 -->
@@ -22,7 +22,41 @@
        
           <div class="col-md-9">
            
+            <section id="line1" class="section">
 
+              <div class="row">
+                  <div class="col-md-12 left-align">
+                      <h2 class="dark-text">Enabling API Access
+                       </h2>
+                  </div>
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+
+              <div class="row">
+                  <div class="col-md-12">
+
+
+
+                    
+                      <p> 
+                        
+                      Open a API Information in Waitabit.
+                      Provide neccessary details in the given field
+                      Click on the  Genetate API and copy the API key 
+                      Read below for API endpoints.
+                       
+                      </p>
+             
+                     
+ 
+                  </div>
+                 
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+
+          </section>
            
 
               <section id="line1" class="section">
@@ -37,26 +71,32 @@
 
                   <div class="row">
                       <div class="col-md-12">
+
+
+
+
                           <p>You need to be authenticated for all API requests. You can generate an API key in your developer dashboard.
 
-                            Add the API key to all requests as a GET parameter.
+                            Add the API key in the Header.
                            
                           </p>
-                           <h4 class="text-gray">Header</h4>
+                           <h4 class="text-gray">Header </h4>
                          
                              <hr>
                           <dl>
-                            <dt>Production API Key</dt>
-                            <dd> Bearer's Production API Key is used only for production</dd>
+                            <dt> X-API-TOKEN (Production)</dt>
+                            <dd> Bearer's Production API Key should be used only for production</dd>
                             
                           </dl>
                           <dl>
-                            <dt>Development API Key</dt>
-                            <dd> Bearer's Development API Key is used for testing</dd>
+                            <dt>X-API-TOKEN (Development)</dt>
+                            <dd> Bearer's Development API Key should be used for testing</dd>
                             
                           </dl>
     
                      <hr>
+                     <pre><code class="language-html">{{header}}</code></pre>
+     
                       </div>
                      
                       <!-- end col -->
@@ -70,7 +110,7 @@
 
                 <div class="row">
                     <div class="col-md-12 left-align">
-                        <h2 class="dark-text">/subscribe <span class="post-endpoint">POST</span></h2>
+                        <h2 class="dark-text">/waitlist <span class="post-endpoint">POST</span></h2>
 
                     </div>
                     <!-- end col -->
@@ -79,7 +119,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                      <p>subscribe is a single POST-endpoint to handle your Waitlist
+                      <p>waitlist is a single POST-endpoint to handle your Waitlist
                       </p>
               
                          <h4 class="text-gray">Parameters</h4>
@@ -88,19 +128,24 @@
                            
                         <dl>
                           <dt>email</dt>
-                          <dd> email id </dd>
+                          <dd> Provided user's email address </dd>
                           
                         </dl>
                         <dl>
                           <dt>current_url</dt>
-                          <dd> Url of your website</dd>
+                          <dd> Fetch the current Url of your website </dd>
                           
                         </dl>
                         
                    <hr>
 
-                 
+                   <pre><code class="language-js">{{requestcode}}</code></pre>
 
+
+
+
+                   
+            
                   
             </div>
                    
@@ -109,17 +154,73 @@
                 <!-- end row -->
 
             </section>
-            <pre><code [highlight]="code" [lineNumbers]="true">{{code}}</code></pre>
+            <hr>
 
-      
+            <section id="line1" class="section">
+
+              <div class="row">
+                  <div class="col-md-12 left-align">
+                      <h2 class="dark-text">Response JSON</h2>
+
+                  </div>
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+
+              <div class="row">
+                  <div class="col-md-12">
+                    <p>
+                      The JavaScript snippet below showcases the response of the above request.
+                    </p>
+            
+                       <h4 class="text-gray">Parameters</h4>
+                     
+                         <hr>
+                         
+                      <dl>
+                        <dt> email_id[string] </dt>
+                        <dd>   The email of your user that signed up for the waitlist. </dd>
+                        
+                      </dl>
+                      <dl>
+                        <dt> rank [integer]</dt>
+                        <dd> The current position of the user in the waitlist</dd>
+                        
+                      </dl>
+                      <dl>
+                        <dt> users_referred [integer]</dt>
+                        <dd> Number of Referral of the user.</dd>
+                        
+                      </dl>
+                                 
+                      <dl>
+                        <dt> total_waiters_currently [integer]  </dt>
+                        <dd> Total users signed up for your waitlist.</dd>
+                        
+                      </dl>
+                      <dl>
+                        <dt>referral_link [string]</dt>
+                        <dd> Referral link for the  registered user.</dd>
+                        
+                      </dl>
+                      
+                 <hr>
+                 
+                 <pre><code class="language-js">{{responsecode}}</code></pre>
+                
+          </div>
+                 
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+
+          </section>
+        
 
 
 
-
-
-              
-              
-
+          
+          
           </div>
           <!-- // end .col -->
 
