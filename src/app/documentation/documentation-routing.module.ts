@@ -18,8 +18,9 @@ const routes: Routes = [
   {
     path: '', component: DocumentationComponent, children: [
       { path: '', redirectTo: 'get-start', pathMatch: 'full' },
-      { path: 'get-start', component: GettingStartedComponent },
-      { path: 'integration', component: IntegrationComponent },
+     {path: 'get-start',
+      loadChildren: () => import('./getting-started/getting-started.module').then(m => m.GettingStartedModule) },
+           { path: 'integration', component: IntegrationComponent },
       { path: 'templates', component: TemplatesComponent },
     
     ]

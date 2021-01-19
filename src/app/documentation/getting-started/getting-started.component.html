@@ -17,6 +17,39 @@
 
       
 
+          <!-- <nav mat-tab-nav-bar>
+  
+            <a mat-tab-link routerLink="ghome" routerLinkActive #homeTab="routerLinkActive" [active]="homeTab.isActive">
+                Home
+            </a>
+            <a mat-tab-link routerLink="search" routerLinkActive #searchTab="routerLinkActive" [active]="searchTab.isActive">Search</a>
+        
+            <a mat-tab-link routerLink="others" routerLinkActive #otherTab="routerLinkActive" [active]="otherTab.isActive">Others</a>
+        
+        </nav> -->
+
+
+
+
+
+      
+          <!-- <mat-tab-group style="margin-bottom: 20px;" #changeEvent (selectedIndexChange)="tabChanged($event)">
+            <mat-tab label="Tab 1">Tab 1</mat-tab>
+            <mat-tab label="Tab 2">Tab 2</mat-tab>
+          </mat-tab-group> -->
+
+         
+          <!-- <mat-tab-group>
+            <mat-tab label="Tab 1">Tab 1</mat-tab>
+            <mat-tab label="Tab 2">Tab 2</mat-tab>
+            <mat-tab label="Tab 3">Tab 3</mat-tab>
+          </mat-tab-group> -->
+
+
+
+
+
+
       </section>
       <!-- end section -->
 
@@ -38,8 +71,8 @@
                                   <div>
 
                                       
-                                      <h4>Before you can start using the API, you need to do the following:</h4>
-                                      <ol>
+                                      <h3>Before you can start using the API, you need to do the following:</h3>
+                                      <ol class="be-start">
                                           <li>Create an account in Waitabit</li>
                                           <li>Create an API key</li>
                                          
@@ -55,43 +88,7 @@
                   </div>
               </section>
 
-              <section id="line1" class="section">
-
-                  <div class="row">
-                      <div class="col-md-12 left-align">
-                          <h2 class="dark-text">How to signup in Waitabit<hr></h2>
-                      </div>
-                      <!-- end col -->
-                  </div>
-                  <!-- end row -->
-
-                  <div class="row">
-                      <div class="col-md-12">
-                          <p>Here is a quick step-by-step guide on how to sign up in Waitabit for the first time. </p>
-                          <ol>
-                            <li> Launch Waitabit</li>
-                            <img src="./assets/images/signin.png" class="navbar-brand-img" alt="...">
-                            <li>  Click on 'Signup for Free' from the top right corner or on the hero section. You'll be presented with a pop up for registration. Click on 'Get Started' </li>
-                            <img src="./assets/images/getstart.png" class="navbar-brand-img" alt="...">
-                      
-                              <li>A new 12-word phrase gets generated for you.  </li> <p>
-                                <i class="fa fa-exclamation-triangle"></i> Note: this is your private key. Copy the secret key and save it. </p>
-                                 
-                            <img src="./assets/images/secretkey.png" class="navbar-brand-img" alt="...">
-                              
-                          
-                            </ol>
-                          
-                          
-                   
-                     
-                      </div>
-                      <!-- end col -->
-                  </div>
-                  <!-- end row -->
-
-              </section>
-              <!-- end section -->
+              
 
             
 
@@ -109,3 +106,42 @@
 
 </div>
 <!-- end wrapper -->
+
+
+
+
+
+<div class="container">
+      
+      
+    <ngb-tabset>
+      
+      <ngb-tab title="Basic Setting">
+        <ng-template ngbTabContent>
+        </ng-template>
+      </ngb-tab>
+       
+      <ngb-tab>
+        <ng-template ngbTabTitle>SMS Setting</ng-template>
+        <ng-template ngbTabContent>
+            <p>This is SMS Setting</p>
+        </ng-template>
+      </ngb-tab>
+       
+      <ngb-tab>
+        <ng-template ngbTabTitle>Email Setting</ng-template>
+        <ng-template ngbTabContent>
+            <p>This is Email Setting</p>
+        </ng-template>
+      </ngb-tab>
+       
+      <ngb-tab title="Disabled" [disabled]="true">
+        <ng-template ngbTabContent>
+          <p>This is Disabled</p>
+        </ng-template>
+      </ngb-tab>
+       
+    </ngb-tabset>
+    </div>
+
+    <!-- <button class="btn btn-primary">Hello</button> -->

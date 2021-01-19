@@ -5,13 +5,38 @@
      
       <div class="sidebar-heading">Waitabit API Docs</div>
       <div class="list-group list-group-flush ">
-        <a routerLink="get-start"  class="list-group-item list-group-item-action navbar-link ">Getting Started</a>
+
+        <div class="nested-menu">
+            <a class="list-group-item" routerLink="get-start" (click)="addExpandClass('get-start')">
+                <!-- <i class="fa fa-calendar"></i>&nbsp; -->
+                <span>{{ 'Getting Started' }}</span>
+            </a>
+                    <li class="nested" [class.expand]="showMenu === 'get-start'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="get-start/sign-up" class="list-group-item">
+                            <span>{{ 'Sign Up'}}</span>
+                        </a>
+                    </li>
+                    
+      
+                </ul>
+            </li>
+        </div>
+    
+    
         <a routerLink="integration" class="list-group-item list-group-item-action navbar-link">Integration</a>
-        <a routerLink="templates" class="list-group-item list-group-item-action navbar-link">Templates</a>
+        <a  routerLink="templates" class="list-group-item list-group-item-action navbar-link">Templates</a>
       </div>
+
+
+      
+
+
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
+    
     <div id="page-content-wrapper">
 		<router-outlet></router-outlet>
 

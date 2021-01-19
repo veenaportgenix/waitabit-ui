@@ -31,14 +31,17 @@
               "src/styles.scss",
               "src/assets/scss/argon.scss",
               "src/assets/styles/app/_app.scss",
-              "./node_modules/ng-docx/assets/styles/ng-docx.scss"
+              "./node_modules/ng-docx/assets/styles/ng-docx.scss",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
              
                
             ],
             "scripts": [
               "./node_modules/chart.js/dist/Chart.min.js",
               "./node_modules/clipboard/dist/clipboard.min.js",
-              "node_modules/ng-docx/assets/js/ng-docx.js"
+              "node_modules/ng-docx/assets/js/ng-docx.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

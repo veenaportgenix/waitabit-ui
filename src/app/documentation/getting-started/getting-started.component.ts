@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-getting-started',
@@ -11,5 +11,6 @@ export class GettingStartedComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
